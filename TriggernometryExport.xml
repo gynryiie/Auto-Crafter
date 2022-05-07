@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <TriggernometryExport Version="1">
-  <ExportedFolder FFXIVJobFilterEnabled="True" FFXIVJobFilter="32640" Id="09459e40-b02c-4f7c-99d5-05b9ad5b37f9" Name="Auto Crafter" Enabled="true">
+  <ExportedFolder FFXIVJobFilterEnabled="True" FFXIVJobFilter="32640" Id="09459e40-b02c-4f7c-99d5-05b9ad5b37f9" Name="Auto Crafter v2.1" Enabled="false">
     <Folders />
     <Triggers>
-      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Auto Craft Toggle" Id="80fad8dc-edfb-4849-8e96-0d47225a932a" RegularExpression="^00\|.*\|0038\|\|(?:(?&lt;autocraft&gt;ac|autocraft)(?: (on|off))?|(?&lt;telestro&gt;where plogon))$">
+      <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="Auto Craft Toggle" Id="80fad8dc-edfb-4849-8e96-0d47225a932a" RegularExpression="^00\|.*\|0038\|\|(?:(?&lt;autocraft&gt;ac|autocraft)(?: (on|off))?|(?&lt;telestro&gt;where plogon))$">
         <Actions>
           <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="acstatus" VariableExpression="max(${var:acstatus}≠1, ${func:length:${1}}-1)%2" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
             <Condition Enabled="true" Grouping="Or">
