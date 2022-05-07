@@ -348,6 +348,11 @@
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
       </Trigger>
+      <Trigger Enabled="false" Name="test" Id="b46aa535-eef3-4d36-b6de-2d755edbc602" RegularExpression="">
+        <Actions />
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
     </Triggers>
   </ExportedFolder>
 </TriggernometryExport>
