@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <TriggernometryExport Version="1">
-  <ExportedFolder FFXIVJobFilterEnabled="True" FFXIVJobFilter="32640" Id="09459e40-b02c-4f7c-99d5-05b9ad5b37f9" Name="Auto Crafter y" Enabled="false">
+  <ExportedFolder FFXIVJobFilterEnabled="True" FFXIVJobFilter="32640" Id="09459e40-b02c-4f7c-99d5-05b9ad5b37f9" Name="Auto Crafter" Enabled="true">
     <Folders />
     <Triggers>
       <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Auto Craft Toggle" Id="80fad8dc-edfb-4849-8e96-0d47225a932a" RegularExpression="^00\|.*\|0038\|\|(?:(?&lt;autocraft&gt;ac|autocraft)(?: (on|off))?|(?&lt;telestro&gt;where plogon))$">
@@ -68,13 +68,10 @@
               <ConditionSingle Enabled="true" ExpressionL="${telestro}" ExpressionTypeL="String" ExpressionR="where plogon" ExpressionTypeR="String" ConditionType="StringEqualCase" />
             </Condition>
           </Action>
-          <Action OrderNumber="14" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="DiscordWebhook" Description="update test" DescriptionOverride="True">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
       </Trigger>
-      <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="Auto Crafter" Id="be019104-09a5-4e50-a719-46f67cd51634" RegularExpression="^12\||\|0(?:038\|\|(?:Macro #(?&lt;macro&gt;\d) finished|(?:ac|autocraft) (?:(?&lt;par&gt;reset|pause)|(?:limit )?(?&lt;limit&gt;\d+)|set (?&lt;material&gt;\d+)))|03C\||8(?:3C\||B0\|\|(?:You lose the effect of ..(?&lt;regex&gt;Well Fed|Medicated|Squadron Spiritbonding Manual|That Which Binds Us)\.|.*「(?&lt;regex&gt;カンパニーアクション：錬精度上昇量アップ|強化薬|錬精度上昇量アップ|食事)」が切れた。)|42\|\|(?:.+(?&lt;regex&gt;は所持品から材料を取り出した。|は製作に失敗した……|のマテリア精製をした！)|(?&lt;regex&gt;You begin synthesizing|Your synthesis fails!|You successfully extract a))|39\|\|(?:.+(?&lt;regex&gt;錬精度が)|(?&lt;regex&gt;Your spiritbond with the)|The condition of your.+ (?&lt;regex&gt;0%)|.*の耐久度が(?&lt;regex&gt;0%)になった。)|C2\|\|(?:.+(?&lt;regex&gt;を完成させた！)|(?&lt;regex&gt;You synthesize))))" Description="Auto-spiritbond crafter gear, Supported language (EN_JP)">
+      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Auto Crafter" Id="be019104-09a5-4e50-a719-46f67cd51634" RegularExpression="^12\||\|0(?:038\|\|(?:Macro #(?&lt;macro&gt;\d) finished|(?:ac|autocraft) (?:(?&lt;par&gt;reset|pause)|(?:limit )?(?&lt;limit&gt;\d+)|set (?&lt;material&gt;\d+)))|03C\||8(?:3C\||B0\|\|(?:You lose the effect of ..(?&lt;regex&gt;Well Fed|Medicated|Squadron Spiritbonding Manual|That Which Binds Us)\.|.*「(?&lt;regex&gt;カンパニーアクション：錬精度上昇量アップ|強化薬|錬精度上昇量アップ|食事)」が切れた。)|42\|\|(?:.+(?&lt;regex&gt;は所持品から材料を取り出した。|は製作に失敗した……|のマテリア精製をした！)|(?&lt;regex&gt;You begin synthesizing|Your synthesis fails!|You successfully extract a))|39\|\|(?:.+(?&lt;regex&gt;錬精度が)|(?&lt;regex&gt;Your spiritbond with the)|The condition of your.+ (?&lt;regex&gt;0%)|.*の耐久度が(?&lt;regex&gt;0%)になった。)|C2\|\|(?:.+(?&lt;regex&gt;を完成させた！)|(?&lt;regex&gt;You synthesize))))" Description="Auto-spiritbond crafter gear, Supported language (EN_JP)">
         <Actions>
           <Action OrderNumber="1" MutexOpType="Acquire" MutexName="sbm" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Mutex">
             <Condition Enabled="false" Grouping="Or" />
@@ -349,10 +346,6 @@
             <Condition Enabled="false" Grouping="Or" />
           </Action>
         </Actions>
-        <Condition Enabled="false" Grouping="Or" />
-      </Trigger>
-      <Trigger Enabled="true" Name="test" Id="b46aa535-eef3-4d36-b6de-2d755edbc602" RegularExpression="">
-        <Actions />
         <Condition Enabled="false" Grouping="Or" />
       </Trigger>
     </Triggers>
