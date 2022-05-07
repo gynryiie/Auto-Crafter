@@ -68,6 +68,9 @@
               <ConditionSingle Enabled="true" ExpressionL="${telestro}" ExpressionTypeL="String" ExpressionR="where plogon" ExpressionTypeR="String" ConditionType="StringEqualCase" />
             </Condition>
           </Action>
+          <Action OrderNumber="14" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Placeholder" Description="update test" DescriptionOverride="True">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
       </Trigger>
