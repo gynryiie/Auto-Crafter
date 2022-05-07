@@ -1,0 +1,353 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder FFXIVJobFilterEnabled="True" FFXIVJobFilter="32640" Id="09459e40-b02c-4f7c-99d5-05b9ad5b37f9" Name="Auto Crafter" Enabled="false">
+    <Folders />
+    <Triggers>
+      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Auto Craft Toggle" Id="80fad8dc-edfb-4849-8e96-0d47225a932a" RegularExpression="^00\|.*\|0038\|\|(?:(?&lt;autocraft&gt;ac|autocraft)(?: (on|off))?|(?&lt;telestro&gt;where plogon))$">
+        <Actions>
+          <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="acstatus" VariableExpression="max(${var:acstatus}≠1, ${func:length:${1}}-1)%2" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${func:length:${autocraft}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="2" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" TriggerOp="EnableTrigger" TriggerId="be019104-09a5-4e50-a719-46f67cd51634" ActionType="Trigger">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:acstatus}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="3" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" TriggerOp="DisableTrigger" TriggerId="be019104-09a5-4e50-a719-46f67cd51634" ActionType="Trigger">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:acstatus}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="4" VariableOp="SetNumeric" VariableName="material" VariableExpression="0" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:material}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="5" VariableOp="SetNumeric" VariableName="sbc" VariableExpression="0" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:sbc}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="6" VariableOp="SetNumeric" VariableName="matlimit" VariableExpression="0" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:matlimit}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="7" TextAuraAlignment="TopRight" TextAuraFontSize="9.75" TextAuraForeground="White" TextAuraOutline="#AB9152" TextAuraName="acAura" TextAuraExpression="[MAT:${var:material}${func:padleft(47,${numeric:or(${var:matlimit})}):}${var:matlimit}] [SPB:${var:sbc}] [${var:sbet}]" TextAuraXIniExpression="${_screenwidth}-254" TextAuraYIniExpression="56" TextAuraWIniExpression="200" TextAuraHIniExpression="100" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="AxisLatinPro-Regular" ActionType="TextAura">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:acstatus}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="8" TextAuraAlignment="TopRight" TextAuraFontSize="8.25" TextAuraForeground="White" TextAuraOutline="#AB9152" TextAuraName="acAuradev" TextAuraExpression="[${var:acstatus}][${var:pressconfirm}][MAT:${var:material} SPB:${var:sbc}] [${var:sbet}]" TextAuraXIniExpression="851" TextAuraYIniExpression="868" TextAuraWIniExpression="324" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="AxisLatinPro-Regular" Enabled="False" ActionType="TextAura">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:acstatus}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="9" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="8.25" TextAuraName="acAura" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:acstatus}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="10" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="SystemBeep">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="11" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: { &quot;command&quot;: &quot;/pcraft run loop 1 CheckPlugins&quot; } }" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="GenericJson">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:telestro}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="12" VariableOp="SetNumeric" VariableName="telestro" VariableExpression="0" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:telestro}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="13" VariableOp="SetNumeric" VariableName="telestro" VariableExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${telestro}" ExpressionTypeL="String" ExpressionR="where plogon" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+            </Condition>
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Auto Crafter" Id="be019104-09a5-4e50-a719-46f67cd51634" RegularExpression="^12\||\|0(?:038\|\|(?:Macro #(?&lt;macro&gt;\d) finished|(?:ac|autocraft) (?:(?&lt;par&gt;reset|pause)|(?:limit )?(?&lt;limit&gt;\d+)|set (?&lt;material&gt;\d+)))|03C\||8(?:3C\||B0\|\|(?:You lose the effect of ..(?&lt;regex&gt;Well Fed|Medicated|Squadron Spiritbonding Manual|That Which Binds Us)\.|.*「(?&lt;regex&gt;カンパニーアクション：錬精度上昇量アップ|強化薬|錬精度上昇量アップ|食事)」が切れた。)|42\|\|(?:.+(?&lt;regex&gt;は所持品から材料を取り出した。|は製作に失敗した……|のマテリア精製をした！)|(?&lt;regex&gt;You begin synthesizing|Your synthesis fails!|You successfully extract a))|39\|\|(?:.+(?&lt;regex&gt;錬精度が)|(?&lt;regex&gt;Your spiritbond with the)|The condition of your.+ (?&lt;regex&gt;0%)|.*の耐久度が(?&lt;regex&gt;0%)になった。)|C2\|\|(?:.+(?&lt;regex&gt;を完成させた！)|(?&lt;regex&gt;You synthesize))))" Description="Auto-spiritbond crafter gear, Supported language (EN_JP)">
+        <Actions>
+          <Action OrderNumber="1" MutexOpType="Acquire" MutexName="sbm" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Mutex">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" TriggerOp="DisableTrigger" TriggerId="be019104-09a5-4e50-a719-46f67cd51634" ActionType="Trigger">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:acstatus}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="3" VariableOp="SetNumeric" VariableName="sbc" VariableExpression="${var:sbc}+1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Description="sbc+1" DescriptionOverride="True">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Your spiritbond with the" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="錬精度が" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="4" VariableOp="SetNumeric" VariableName="sbc" VariableExpression="${var:sbc}-1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Description="sbc-1" DescriptionOverride="True">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionGroup Enabled="true" Grouping="Or">
+                <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You successfully extract a" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="のマテリア精製をした！" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              </ConditionGroup>
+              <ConditionSingle Enabled="true" ExpressionL="${var:sbc}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="5" VariableOp="SetNumeric" VariableName="material" VariableExpression="${var:material}+1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Description="material+1" DescriptionOverride="True">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Your synthesis fails!" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は製作に失敗した……" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You synthesize" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="を完成させた！" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="6" VariableOp="SetNumeric" VariableName="material" VariableExpression="0" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Description="material=0" DescriptionOverride="True">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionGroup Enabled="false" Grouping="And">
+                <ConditionGroup Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You begin synthesizing" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は所持品から材料を取り出した。" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                </ConditionGroup>
+                <ConditionSingle Enabled="true" ExpressionL="${var:resett}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              </ConditionGroup>
+              <ConditionSingle Enabled="true" ExpressionL="${par}" ExpressionTypeL="String" ExpressionR="reset" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="7" SystemBeepFreqExpression="500" KeypressType="WindowMessage" KeyPressExpression="1" KeyPressCode="49+(${macro})" KeyPressWindow="FINAL FANTASY XIV" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="KeyPress" Description="Presses 1" DescriptionOverride="True">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionGroup Enabled="true" Grouping="Or">
+                <ConditionSingle Enabled="true" ExpressionL="(${macro})" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You begin synthesizing" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は所持品から材料を取り出した。" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              </ConditionGroup>
+              <ConditionSingle Enabled="true" ExpressionL="${evar:acstatus}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionGroup Enabled="true" Grouping="Or">
+                <ConditionSingle Enabled="true" ExpressionL="${var:material}" ExpressionTypeL="Numeric" ExpressionR="${var:matlimit}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                <ConditionSingle Enabled="true" ExpressionL="${var:matlimit}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              </ConditionGroup>
+            </Condition>
+          </Action>
+          <Action OrderNumber="8" SystemBeepFreqExpression="500" KeypressType="WindowMessage" KeyPressExpression="1" KeyPressCode="49+(${macro})" KeyPressWindow="FINAL FANTASY XIV" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="SystemBeep" Description="Presses 1" DescriptionOverride="True">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionGroup Enabled="true" Grouping="Or">
+                <ConditionSingle Enabled="true" ExpressionL="(${macro})" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You begin synthesizing" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は所持品から材料を取り出した。" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              </ConditionGroup>
+              <ConditionSingle Enabled="true" ExpressionL="${evar:acstatus}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionGroup Enabled="true" Grouping="Or">
+                <ConditionSingle Enabled="true" ExpressionL="${var:material}" ExpressionTypeL="Numeric" ExpressionR="${var:matlimit}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                <ConditionSingle Enabled="true" ExpressionL="${var:matlimit}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              </ConditionGroup>
+            </Condition>
+          </Action>
+          <Action OrderNumber="9" VariableOp="SetNumeric" VariableName="material" VariableExpression="${material}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${func:length:${material}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="10" VariableOp="SetNumeric" VariableName="matlimit" VariableExpression="${limit}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${limit}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="11" VariableName="matlimit" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${limit}" ExpressionTypeL="String" ExpressionR="0" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="12" VariableOp="SetNumeric" VariableName="sbst" VariableExpression="${_systemtime}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Description="sbst=_systemtime" DescriptionOverride="True">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionGroup Enabled="true" Grouping="Or">
+                <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You begin synthesizing" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は所持品から材料を取り出した。" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              </ConditionGroup>
+              <ConditionGroup Enabled="true" Grouping="Or">
+                <ConditionSingle Enabled="true" ExpressionL="${var:resett}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                <ConditionSingle Enabled="true" ExpressionL="${evar:sbst}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                <ConditionSingle Enabled="false" ExpressionL="${var:material}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              </ConditionGroup>
+              <ConditionSingle Enabled="true" ExpressionL="${evar:acstatus}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="13" VariableOp="SetNumeric" VariableName="resett" VariableExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Description="resett=1" DescriptionOverride="True">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionGroup Enabled="false" Grouping="And">
+                <ConditionSingle Enabled="true" ExpressionL="${var:sbc}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                <ConditionGroup Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You successfully extract a" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="のマテリア精製をした！" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                </ConditionGroup>
+              </ConditionGroup>
+              <ConditionSingle Enabled="true" ExpressionL="${par}" ExpressionTypeL="String" ExpressionR="reset" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="14" VariableName="resett" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You begin synthesizing" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は所持品から材料を取り出した。" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="15" VariableOp="SetString" VariableName="sbet" VariableExpression="${func:padleft(48,2):${numeric:floor((${_systemtime}-${var:sbst})/60)}}:${func:padleft(48,2):${numeric:(${_systemtime}-${var:sbst})%60}}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:pressconfirm}" ExpressionTypeL="String" ExpressionR="0" ExpressionTypeR="String" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="16" VariableOp="SetString" VariableName="sbet" VariableExpression="00:00" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:resett}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="17" TextAuraAlignment="TopRight" TextAuraFontSize="8.25" TextAuraForeground="White" TextAuraOutline="#AB9152" TextAuraName="craftCountdev" TextAuraExpression="[${var:acstatus}][${var:pressconfirm}][MAT:${var:material} SPB:${var:sbc}] [${var:sbet}]" TextAuraXIniExpression="851" TextAuraYIniExpression="868" TextAuraWIniExpression="324" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="AxisLatinPro-Regular" Enabled="False" ActionType="TextAura">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="18" TextAuraAlignment="TopRight" TextAuraFontSize="9.75" TextAuraForeground="White" TextAuraOutline="#AB9152" TextAuraName="craftCount" TextAuraExpression="[MAT:${var:material} SPB:${var:sbc}] [${var:sbet}]" TextAuraXIniExpression="${_screenwidth}-257" TextAuraYIniExpression="54" TextAuraWIniExpression="200" TextAuraHIniExpression="100" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="AxisLatinPro-Regular" Enabled="False" ActionType="TextAura">
+            <Condition Enabled="false" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${_ffxivplayer}" ExpressionTypeL="String" ExpressionR="Hikari Lonecat" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="19" VariableOp="SetNumeric" VariableName="repair" VariableExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="0%" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Squadron Spiritbonding Manual" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="That Which Binds Us" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="カンパニーアクション：錬精度上昇量アップ" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="錬精度上昇量アップ" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="20" VariableName="repair" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You begin synthesizing" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は所持品から材料を取り出した。" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="21" KeyPressExpression="{F14}" VariableOp="SetNumeric" VariableName="pressconfirm" VariableExpression="${_systemtimems}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Description="Calls for pressconfirm" DescriptionOverride="True">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionGroup Enabled="true" Grouping="Or">
+                <ConditionSingle Enabled="false" ExpressionL="${reset}" ExpressionTypeL="String" ExpressionR="Your synthesis fails!" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                <ConditionSingle Enabled="false" ExpressionL="${reset}" ExpressionTypeL="String" ExpressionR="は製作に失敗した……" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You synthesize" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="を完成させた！" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              </ConditionGroup>
+              <ConditionSingle Enabled="true" ExpressionL="${var:sbc}" ExpressionTypeL="Numeric" ExpressionR="13" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+              <ConditionGroup Enabled="true" Grouping="Or">
+                <ConditionSingle Enabled="true" ExpressionL="${var:material}" ExpressionTypeL="Numeric" ExpressionR="${var:matlimit}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                <ConditionSingle Enabled="true" ExpressionL="${var:matlimit}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              </ConditionGroup>
+              <ConditionSingle Enabled="true" ExpressionL="${evar:repair}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="22" KeyPressExpression="{F14}" VariableOp="SetNumeric" VariableName="pressconfirm" VariableExpression="0" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="SystemBeep">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionGroup Enabled="true" Grouping="And">
+                <ConditionGroup Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${0}" ExpressionTypeL="String" ExpressionR="^12\||\|083C\||\|003C\|" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                  <ConditionSingle Enabled="false" ExpressionL="${_systemtimems}-${var:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="4800" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Well Fed" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                  <ConditionSingle Enabled="false" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="0%" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="食事" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                </ConditionGroup>
+                <ConditionSingle Enabled="true" ExpressionL="${evar:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              </ConditionGroup>
+              <ConditionGroup Enabled="true" Grouping="And">
+                <ConditionGroup Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Your synthesis fails!" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は製作に失敗した……" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You synthesize" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="を完成させた！" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                </ConditionGroup>
+                <ConditionSingle Enabled="true" ExpressionL="${var:material}" ExpressionTypeL="Numeric" ExpressionR="${var:matlimit}" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              </ConditionGroup>
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="0%" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Squadron Spiritbonding Manual" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="That Which Binds Us" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="カンパニーアクション：錬精度上昇量アップ" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="錬精度上昇量アップ" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="23" KeyPressExpression="{F14}" VariableName="pressconfirm" VariableExpression="0" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You begin synthesizing" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:sbc}" ExpressionTypeL="Numeric" ExpressionR="12" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は所持品から材料を取り出した。" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${0}" ExpressionTypeL="String" ExpressionR="^12\||\|083C\||\|003C\|" ExpressionTypeR="String" ConditionType="RegexMatch" />
+              <ConditionSingle Enabled="true" ExpressionL="${_systemtimems}-${var:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="4800" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="0%" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Well Fed" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="食事" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="false" ExpressionL="${var:sbc}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Medicated" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Squadron Spiritbonding Manual" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="That Which Binds Us" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="強化薬" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="カンパニーアクション：錬精度上昇量アップ" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="錬精度上昇量アップ" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="24" AuraName="cBase" AuraImage="https://raw.githubusercontent.com/gynryiie/assets/master/icons/progressBg.png" AuraXIniExpression="(${_screenwidth}-156)/2" AuraYIniExpression="floor(689/1080*${_screenheight}*27/26)" AuraWIniExpression="156" AuraHIniExpression="14" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:telestro}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="25" AuraName="cProgress1" AuraImage="https://raw.githubusercontent.com/gynryiie/assets/master/icons/progressF1.png" AuraXIniExpression="${_imageaura[cBase].x}" AuraYIniExpression="${_imageaura[cBase].y}" AuraWIniExpression="${_imageaura[cProgress1].w}" AuraHIniExpression="14" AuraOIniExpression="100" AuraWTickExpression="min(((${_systemtimems}-${var:pressconfirm})/1800)*152, 152)" VariableOp="SetNumeric" VariableName="casting" VariableExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:telestro}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="26" AuraName="cProgress2" AuraImage="https://raw.githubusercontent.com/gynryiie/assets/master/icons/progressF2.png" AuraXIniExpression="${_imageaura[cBase].x}" AuraYIniExpression="${_imageaura[cBase].y}" AuraWIniExpression="${_imageaura[cProgress2].w}" AuraHIniExpression="14" AuraOIniExpression="100" AuraWTickExpression="(${_systemtimems}-${var:pressconfirm}-1800)/3000*152" VariableOp="SetNumeric" VariableName="casting" VariableExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${_systemtimems}-${var:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="1800" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:telestro}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="27" AuraOp="DeactivateAuraRegex" AuraName="cProgress|cBase" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:telestro}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="28" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="FINAL FANTASY XIV" VariableOp="SetNumeric" VariableName="synthesizeQueued" VariableExpression="0" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Description="Initialize Synthesize Queue Flag [ DALAMUD ]" DescriptionOverride="True">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${_systemtimems}-${var:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="2500" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:telestro}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${evar:synthesizeQueued}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="29" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: { &quot;command&quot;: &quot;/pcraft run loop 1 Synthesize&quot; } }" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="FINAL FANTASY XIV" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="GenericJson" Description="NEW Click Synthesize [ DALAMUD ]" DescriptionOverride="True">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:synthesizeQueued}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="30" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="FINAL FANTASY XIV" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="KeyPress">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${_systemtimems}-${var:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="1800" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:telestro}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="31" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" TriggerId="be019104-09a5-4e50-a719-46f67cd51634" TriggerForce="regexp" ActionType="Trigger">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${evar:synthesizeQueued}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="32" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="FINAL FANTASY XIV" VariableName="synthesizeQueued" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:synthesizeQueued}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You begin synthesizing" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は所持品から材料を取り出した。" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="33" MutexName="sbm" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Mutex">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+    </Triggers>
+  </ExportedFolder>
+</TriggernometryExport>
