@@ -3,7 +3,11 @@
 ## Installation [Incomplete]
 ### Dependencies
 
-Install the 64-bit version of [Advanced Combat Tracker](http://advancedcombattracker.com/), if you have not already.
+[Advanced Combat Tracker](http://advancedcombattracker.com/)
+
+FFXIV ACT Plugin
+
+[Triggernometry](https://github.com/paissaheavyindustries/Triggernometry/releases)
 
 ### Adding the Trigger
 
