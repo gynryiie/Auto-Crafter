@@ -1,5 +1,11 @@
 # Auto-Crafter
 
+1. [Installation](#Installation [WIP])
+2. [Updating](#updating)
+3. [Setup](#setup)
+4. [Usage](#usage)
+
+
 ## Installation [WIP]
 ### Dependencies
 
