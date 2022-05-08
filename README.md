@@ -27,9 +27,9 @@ Auto-pause for conditions like
   - Failing a synthesis.
   - Most in-game chat log errors in red text
 
-Elapsed time
-Multi-part macro support
-Synthesis limit
+Elapsed time\
+Multi-part macro support\
+Synthesis limit\
 Optional support and extra features using 3rd-party Dalamud Plugins such as
 
   - Keybindless automation
