@@ -35,8 +35,8 @@ https://raw.githubusercontent.com/gynryiie/Auto-Crafter/master/TriggernometryExp
 
 ## Setup [WIP]
 ### Vanilla (with ACT and ACT plugins only)
-Keybind:
-  Keybind\>System\>\[Confirm: NUM0\]
+```
+  Keybind>System>[Confirm: NUM0]
   Place first macro in hotbar with keybind "1"
   
   (For multi-part macro)
@@ -45,7 +45,7 @@ Keybind:
   Set second macro's last line to '/e Macro #2 finished'
   Place second macro in hotbar with keybind "3"
   and so on...
-  
+```
   
 ### Dalamud Plugins
 -
