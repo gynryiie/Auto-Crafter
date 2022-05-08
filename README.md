@@ -12,6 +12,7 @@ Address: `https://raw.githubusercontent.com/gynryiie/Auto-Crafter/master/Trigger
 ![image](https://user-images.githubusercontent.com/19721540/167280607-27b8c9ad-9aa0-4a9a-9d51-fc6e06ec94b2.png)
 
 ## Updating
+
 1. Update the Hikarin's Triggers Repository
 
 ![image](https://user-images.githubusercontent.com/19721540/167280757-2a751156-91fc-400f-8bd6-87cf0cf5df96.png)
@@ -20,3 +21,18 @@ Address: `https://raw.githubusercontent.com/gynryiie/Auto-Crafter/master/Trigger
 3. Copy the updated Auto Crafter trigger from Hikarin's Triggers repository
 4. Paste it in the Local Triggers
 5. Enable The Auto Crafter Trigger in the Local Triggers
+
+## Usage
+
+ALIASES:
+  /echo autocraft, /echo ac, /e autocraft, /e ac
+USAGE:
+  /e autocraft [subcommand]
+>>Subcommands:
+  <none>        toggles the autocrafting on and off.
+  on            turns on autocrafting.
+  off           turns off autocrafting.
+  [craft count] set the limit of crafted items.
+  set "amount"  set the current crafted count to the specified amount.
+  reset         reset the current count and the elapsed time to 0.
+    
