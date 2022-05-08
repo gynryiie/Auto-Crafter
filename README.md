@@ -36,7 +36,7 @@ https://raw.githubusercontent.com/gynryiie/Auto-Crafter/master/TriggernometryExp
 ## Setup [WIP]
 ### Vanilla (with ACT and ACT plugins only)
 Keybind:
-  Keybind>System>\[Confirm: NUM0\]
+  Keybind\>System\>\[Confirm: NUM0\]
   Place first macro in hotbar with keybind "1"
   
   (For multi-part macro)
