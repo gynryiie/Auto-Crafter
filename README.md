@@ -23,15 +23,16 @@ Address: `https://raw.githubusercontent.com/gynryiie/Auto-Crafter/master/Trigger
 5. Enable The Auto Crafter Trigger in the Local Triggers
 
 ## Usage
-
-ALIASES:\
-  /echo autocraft, /echo ac, /e autocraft, /e ac\
-USAGE:\
-  /e autocraft [subcommand]\
-\>>Subcommands:\
-    <none>        toggles the autocrafting on and off.__
-    on            turns on autocrafting.__
-    off           turns off autocrafting.__
-    [craft count] set the limit of crafted items.__
-    set "amount"  set the current crafted count to the specified amount.__
+```
+ALIASES:
+  /echo autocraft, /echo ac, /e autocraft, /e ac
+USAGE:
+  /e autocraft [subcommand]
+>>Subcommands:
+    <none>        toggles the autocrafting on and off.
+    on            turns on autocrafting.
+    off           turns off autocrafting.
+    [craft count] set the limit of crafted items.
+    set "amount"  set the current crafted count to the specified amount.
     reset         reset the current count and the elapsed time to 0.
+```
