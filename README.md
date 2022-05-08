@@ -9,13 +9,13 @@
 ## About
 an FFXIV auto crafter with extra features such as
 1. auto-pause/halt for conditions like:\
-   -Spiritbonded 12 items to 100%.
-   -Losing the effect of food or potion buffs.
-   -Losing the effect of FC or squadron buffs.
-   -Equipment durability dropping to 0%.
-   -Reaching the specified synthesis count.
-   -Running out of materials.
-   -Failing a synthesis.
+   -Spiritbonded 12 items to 100%.\
+   -Losing the effect of food or potion buffs.\
+   -Losing the effect of FC or squadron buffs.\
+   -Equipment durability dropping to 0%.\
+   -Reaching the specified synthesis count.\
+   -Running out of materials.\
+   -Failing a synthesis.\
 2. elapsed time
 3. 
 
