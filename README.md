@@ -7,4 +7,4 @@ Setup
 `https://raw.githubusercontent.com/gynryiie/Auto-Crafter/master/TriggernometryExport.xml`
 
 ![image](https://user-images.githubusercontent.com/19721540/167268633-243f8e6f-3379-423f-bdd1-4ec42fe6ac09.png)
-![image](https://user-images.githubusercontent.com/19721540/167280109-aac069b3-9885-441b-abce-a922858073a5.png)
+![image](https://user-images.githubusercontent.com/19721540/167280176-5f90ede9-e37d-4d1e-89d7-f80d0e9007ea.png)
