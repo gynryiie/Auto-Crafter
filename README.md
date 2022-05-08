@@ -1,30 +1,39 @@
 # Auto-Crafter
 
 1. [About](#about)
+1. [Features](#features)
 1. [Installation](#installation)
 1. [Updating](#updating)
 1. [Setup](#setup)
 1. [Usage](#usage)
 
 ## About
-An FFXIV auto crafter with features such as
+An FFXIV Auto Crafter as an ACT Triggernometry trigger, but why?
+- not another application you need to open (if you always have ACT open anyways)
+- uses log lines to indentify the next step for reliability and efficiency
+- doesn't actually require any of your act plugins to be up to date in order to function!
+- dalamud plugin dependency is completely optional
+
+basically will liekly never break, unless there's a change with the act parsing plugin log syntax
+
+## Features
 1. Auto-pause/halt for conditions like:
-   - Spiritbonded 12 items to 100%.
-   - Losing the effect of food or potion buffs.
-   - Losing the effect of FC or squadron buffs.
-   - Equipment durability dropping to 0%.
-   - Reaching the specified synthesis count.
-   - Running out of materials.
-   - Failing a synthesis.
-   - Most in-game chat log errors in red text
+- Spiritbonded 12 items to 100%.
+- Losing the effect of food or potion buffs.
+- Losing the effect of FC or squadron buffs.
+- Equipment durability dropping to 0%.
+- Reaching the specified synthesis count.
+- Running out of materials.
+- Failing a synthesis.
+- Most in-game chat log errors in red text
 1. Elapsed time
 1. Multi-part macro support
 1. Synthesis limit
 1. Optional support and extra features using 3rd-party Dalamud Plugins such as
-   - Keybindless automation
-   - Conditional crafting steps
-   - Smart action queuing
-   - Extended macro length
+- Keybindless automation
+- Conditional crafting steps
+- Smart action queuing
+- Extended macro length
 
 ## Installation
 ### Dependencies
