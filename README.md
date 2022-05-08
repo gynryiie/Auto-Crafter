@@ -1,9 +1,9 @@
 # Auto-Crafter
 
 1. [Installation](#installation)
-2. [Updating](#updating)
-3. [Setup](#setup)
-4. [Usage](#usage)
+1. [Updating](#updating)
+1. [Setup](#setup)
+1. [Usage](#usage)
 
 
 ## Installation
