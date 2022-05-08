@@ -31,6 +31,6 @@ USAGE:
     on            turns on autocrafting.
     off           turns off autocrafting.
     [craft count] set the limit of crafted items.
-    set "amount"  set the current crafted count to the specified amount.
+    set [amount]  set the current crafted count to the specified amount.
     reset         reset the current count and the elapsed time to 0.
 ```
