@@ -16,13 +16,13 @@ An FFXIV Auto Crafter as an ACT Triggernometry trigger, but why?
 basically, this will likely never break, unless there's a change with the act parsing plugin log syntax
 
 ## Features
-Elapsed time
+1. Elapsed time
 
-Multi-part macro support
+1. Multi-part macro support
 
-Synthesis limit
+1. Synthesis limit
 
-Auto-pause for conditions like
+1. Auto-pause for conditions like
 
   - Spiritbonded 12 items to 100%.
   - Losing the effect of food or potion buffs.
@@ -33,7 +33,7 @@ Auto-pause for conditions like
   - Failing a synthesis.
   - Most in-game chat log errors in red text
 
-Optional support and extra features using 3rd-party Dalamud Plugins such as
+1. Optional support and extra features using 3rd-party Dalamud Plugins such as
 
   - Keybindless automation
   - Conditional crafting steps
