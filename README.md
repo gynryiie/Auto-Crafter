@@ -5,9 +5,9 @@
 
 [Advanced Combat Tracker](http://advancedcombattracker.com/)
 
-FFXIV ACT Plugin
+FFXIV Parsing Plugin
 
-[Triggernometry](https://github.com/paissaheavyindustries/Triggernometry/releases)
+[Triggernometry Plugin](https://github.com/paissaheavyindustries/Triggernometry/releases)
 
 ### Adding the Trigger
 
