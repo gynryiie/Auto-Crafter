@@ -7,7 +7,7 @@
 1. [Usage](#usage)
 
 ## About
-An FFXIV auto crafter with extra features such as
+An FFXIV auto crafter with features such as
 1. Auto-pause/halt for conditions like:
    - Spiritbonded 12 items to 100%.
    - Losing the effect of food or potion buffs.
