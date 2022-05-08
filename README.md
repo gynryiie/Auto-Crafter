@@ -16,6 +16,9 @@ An FFXIV Auto Crafter as an ACT Triggernometry trigger, but why?
 basically, this will likely never break, unless there's a change with the act parsing plugin log syntax
 
 ## Features
+Elapsed time
+Multi-part macro support
+Synthesis limit
 Auto-pause for conditions like
 
   - Spiritbonded 12 items to 100%.
@@ -33,9 +36,7 @@ Optional support and extra features using 3rd-party Dalamud Plugins such as
   - Conditional crafting steps
   - Smart action queuing
   - Extended macro length
-Elapsed time\
-Multi-part macro support\
-Synthesis limit
+
 
 ## Installation
 ### Dependencies
