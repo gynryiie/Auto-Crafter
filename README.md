@@ -27,12 +27,12 @@ An FFXIV auto crafter with extra features such as
 ## Installation
 ### Dependencies
 
-[Advanced Combat Tracker](http://advancedcombattracker.com/)\
-FFXIV Parsing Plugin\
-[Triggernometry Plugin](https://github.com/paissaheavyindustries/Triggernometry/releases)
+   - [Advanced Combat Tracker](http://advancedcombattracker.com/)
+   - FFXIV Parsing Plugin
+   - [Triggernometry Plugin](https://github.com/paissaheavyindustries/Triggernometry/releases)
 
 ### Optional Dependencies
-Dalamud Plugins:\
+Dalamud Plugins:
    - Telesto
    - SomethingNeedsDoing
    - MacroChain
