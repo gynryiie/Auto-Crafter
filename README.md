@@ -54,7 +54,7 @@ https://raw.githubusercontent.com/gynryiie/Auto-Crafter/master/TriggernometryExp
 ![image](https://user-images.githubusercontent.com/19721540/167280449-d64d2fb2-b477-4057-96db-8bf50eb1e535.png)
 ![image](https://user-images.githubusercontent.com/19721540/167280607-27b8c9ad-9aa0-4a9a-9d51-fc6e06ec94b2.png)
 
-Make sure not to have more than 1 instance of the `Auto crafter` folder trigger enabled
+Make sure not to have more than 1 instance of the `Auto Crafter` folder trigger enabled
 
 ## Updating
 
