@@ -16,7 +16,7 @@ An FFXIV Auto Crafter as an ACT Triggernometry trigger, but why?
 basically, this will likely never break, unless there's a change with the act parsing plugin log syntax
 
 ## Features
-1. Auto-pause/halt for conditions like:
+1. Auto-pause/halt for conditions like
   - Spiritbonded 12 items to 100%.
   - Losing the effect of food or potion buffs.
   - Losing the effect of FC or squadron buffs.
