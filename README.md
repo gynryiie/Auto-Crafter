@@ -7,8 +7,8 @@
 1. [Usage](#usage)
 
 ## About
-an FFXIV auto crafter with extra features such as
-1. auto-pause/halt for conditions like:
+An FFXIV auto crafter with extra features such as
+1. Auto-pause/halt for conditions like:
    - Spiritbonded 12 items to 100%.
    - Losing the effect of food or potion buffs.
    - Losing the effect of FC or squadron buffs.
@@ -16,8 +16,9 @@ an FFXIV auto crafter with extra features such as
    - Reaching the specified synthesis count.
    - Running out of materials.
    - Failing a synthesis.
-2. elapsed time
-3. 
+2. Elapsed time
+3. Support for multi-part macro
+4. Optional support and extra features using 3rd-party Dalamud Plugins
 
 ## Installation
 ### Dependencies
