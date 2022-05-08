@@ -13,10 +13,8 @@ Address: `https://raw.githubusercontent.com/gynryiie/Auto-Crafter/master/Trigger
 
 ## Updating
 
-1. Update the Hikarin's Triggers Repository
-
 ![image](https://user-images.githubusercontent.com/19721540/167280757-2a751156-91fc-400f-8bd6-87cf0cf5df96.png)
-
+1. Update the Hikarin's Triggers Repository
 2. Delete the old Auto Crafter trigger folder in the Local Triggers
 3. Copy the updated Auto Crafter trigger from Hikarin's Triggers repository
 4. Paste it in the Local Triggers
