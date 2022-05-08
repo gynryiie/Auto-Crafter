@@ -1,6 +1,6 @@
 # Auto-Crafter
 
-## Installation [Incomplete]
+## Installation [WIP]
 ### Dependencies
 
 [Advanced Combat Tracker](http://advancedcombattracker.com/)
