@@ -1,6 +1,12 @@
 # Auto-Crafter
 
 ## Installation [Incomplete]
+### Dependencies
+
+Install the 64-bit version of [Advanced Combat Tracker](http://advancedcombattracker.com/), if you have not already.
+
+### Adding the Trigger
+
 
 ![image](https://user-images.githubusercontent.com/19721540/167280273-e2eeb7d4-66d0-4335-80c4-ed8e0e8725d3.png)
 
