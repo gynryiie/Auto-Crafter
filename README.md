@@ -24,11 +24,11 @@ Auto-pause/halt for conditions like
   - Reaching the specified synthesis count.
   - Running out of materials.
   - Failing a synthesis.
-  - Most in-game chat log errors in red text
-Elapsed time
-Multi-part macro support
-Synthesis limit
-Optional support and extra features using 3rd-party Dalamud Plugins such as
+  - Most in-game chat log errors in red text\
+Elapsed time\
+Multi-part macro support\
+Synthesis limit\
+Optional support and extra features using 3rd-party Dalamud Plugins such as\
   - Keybindless automation
   - Conditional crafting steps
   - Smart action queuing
