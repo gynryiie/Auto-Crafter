@@ -1,6 +1,6 @@
 # Auto-Crafter
 
-1. [Installation](#Installation [WIP])
+1. [Installation](#installation)
 2. [Updating](#updating)
 3. [Setup](#setup)
 4. [Usage](#usage)
