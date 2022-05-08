@@ -17,19 +17,22 @@ basically, this will likely never break, unless there's a change with the act pa
 
 ## Features
 
-Elapsed time\
-Multi-part macro support\
-Synthesis limit\
+Elapsed time
+
+Multi-part macro support
+
+Synthesis limit
+
 Auto-pause for conditions like
 
-  - Spiritbonded 12 items to 100%.
-  - Losing the effect of food or potion buffs.
-  - Losing the effect of FC or squadron buffs.
-  - Equipment durability dropping to 0%.
-  - Reaching the specified synthesis count.
-  - Running out of materials.
-  - Failing a synthesis.
-  - Most in-game chat log errors in red text
+- Spiritbonded 12 items to 100%.
+- Losing the effect of food or potion buffs.
+- Losing the effect of FC or squadron buffs.
+- Equipment durability dropping to 0%.
+- Reaching the specified synthesis count.
+- Running out of materials.
+- Failing a synthesis.
+- Most in-game chat log errors in red text
 
 Optional support and extra features using 3rd-party Dalamud Plugins such as
 
