@@ -31,6 +31,12 @@ An FFXIV auto crafter with extra features such as
 FFXIV Parsing Plugin\
 [Triggernometry Plugin](https://github.com/paissaheavyindustries/Triggernometry/releases)
 
+### Optional Dependencies
+Dalamud Plugins:\
+   - Telesto
+   - SomethingNeedsDoing
+   - MacroChain
+
 ### Adding the Trigger
 
 
