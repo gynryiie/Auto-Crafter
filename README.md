@@ -16,6 +16,7 @@ An FFXIV Auto Crafter as an ACT Triggernometry trigger, but why?
 basically, this will likely never break, unless there's a change with the act parsing plugin log syntax
 
 ## Features
+
 1. Elapsed time
 
 1. Multi-part macro support
