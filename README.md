@@ -38,9 +38,6 @@ https://raw.githubusercontent.com/gynryiie/Auto-Crafter/master/TriggernometryExp
 
 1. Keybind > System > Confirm: NUM0
 2. Place first macro in hotbar with keybind '1'
-1. Keybind > System > Confirm: NUM0
-2. Place first macro in hotbar with keybind '1'
-1. Keybind > System > Confirm: NUM0
 2. Place first macro in hotbar with keybind '1'
 For multi-part macro
 3. Set first macro's last line to '/e Macro #1 finished'
