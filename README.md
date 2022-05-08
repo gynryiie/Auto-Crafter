@@ -16,9 +16,11 @@ An FFXIV auto crafter with extra features such as
    - Reaching the specified synthesis count.
    - Running out of materials.
    - Failing a synthesis.
-2. Elapsed time
-3. Support for multi-part macro
-4. Optional support and extra features using 3rd-party Dalamud Plugins such as
+   - Most in-game chat log errors in red text
+1. Elapsed time
+1. Multi-part macro support
+1. Synthesis limit
+1. Optional support and extra features using 3rd-party Dalamud Plugins such as
    - Keybindless automation
    - Conditional crafting steps
    - Smart action queuing
