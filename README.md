@@ -2,7 +2,7 @@
 
 Setup
 
-![image](https://user-images.githubusercontent.com/19721540/167280082-061117c6-2ea2-485a-9244-66f5a7a02ef7.png)
+![image](https://user-images.githubusercontent.com/19721540/167280273-e2eeb7d4-66d0-4335-80c4-ed8e0e8725d3.png)
 
 `https://raw.githubusercontent.com/gynryiie/Auto-Crafter/master/TriggernometryExport.xml`
 
