@@ -3,8 +3,8 @@
 ## Installation [WIP]
 ### Dependencies
 
-[Advanced Combat Tracker](http://advancedcombattracker.com/)
-FFXIV Parsing Plugin
+[Advanced Combat Tracker](http://advancedcombattracker.com/)\
+FFXIV Parsing Plugin\
 [Triggernometry Plugin](https://github.com/paissaheavyindustries/Triggernometry/releases)
 
 ### Adding the Trigger
