@@ -17,8 +17,11 @@ basically, this will likely never break, unless there's a change with the act pa
 
 ## Features
 Elapsed time
+
 Multi-part macro support
+
 Synthesis limit
+
 Auto-pause for conditions like
 
   - Spiritbonded 12 items to 100%.
