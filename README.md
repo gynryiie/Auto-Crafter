@@ -1,12 +1,12 @@
 # Auto-Crafter
 
-1. [Installation](#installation-[wip])
+1. [Installation](#installation)
 2. [Updating](#updating)
 3. [Setup](#setup)
 4. [Usage](#usage)
 
 
-## Installation [WIP]
+## Installation
 ### Dependencies
 
 [Advanced Combat Tracker](http://advancedcombattracker.com/)\
