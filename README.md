@@ -15,6 +15,7 @@
 1. Update the Hikarin's Triggers Repository
 
 ![image](https://user-images.githubusercontent.com/19721540/167280757-2a751156-91fc-400f-8bd6-87cf0cf5df96.png)
+
 2. Delete the old Auto Crafter Trigger Folder in the Local Triggers
 3. Copy the updated Auto Crafter Trigger from Hikarin's Triggers in the Remote Triggers
 4. Paste it in the Local Triggers
