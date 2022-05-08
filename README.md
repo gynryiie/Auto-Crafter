@@ -1,6 +1,6 @@
 # Auto-Crafter
 
-Setup
+## Setup
 
 ![image](https://user-images.githubusercontent.com/19721540/167280273-e2eeb7d4-66d0-4335-80c4-ed8e0e8725d3.png)
 
