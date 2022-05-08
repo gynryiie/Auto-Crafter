@@ -23,7 +23,7 @@ Multi-part macro support
 
 Synthesis limit
 
-Auto-pause for conditions like
+Auto-pause (and BEEPS!!!) for conditions like
 
 - Spiritbonded 12 items to 100%.
 - Losing the effect of food or potion buffs.
