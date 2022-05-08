@@ -28,7 +28,7 @@ ALIASES:
   /echo autocraft, /echo ac, /e autocraft, /e ac
 USAGE:
   /e autocraft [subcommand]
->>Subcommands:
+\>>Subcommands:
   <none>        toggles the autocrafting on and off.
   on            turns on autocrafting.
   off           turns off autocrafting.
