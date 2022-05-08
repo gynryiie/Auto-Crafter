@@ -1,12 +1,5 @@
 # Auto-Crafter
 
-1. [About](#about)
-1. [Features](#features)
-1. [Installation](#installation)
-1. [Updating](#updating)
-1. [Setup](#setup)
-1. [Usage](#usage)
-
 ## About
 An FFXIV Auto Crafter as an ACT Triggernometry trigger, but why?
 - not another application you need to open (if you always have ACT open)
