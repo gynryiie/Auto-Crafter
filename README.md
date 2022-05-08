@@ -34,7 +34,7 @@ USAGE:
   
 \>>Subcommands:
 
-  <none>        toggles the autocrafting on and off.\n
+  <none>        toggles the autocrafting on and off.\
   on            turns on autocrafting.
   off           turns off autocrafting.
   [craft count] set the limit of crafted items.
