@@ -34,7 +34,7 @@ https://raw.githubusercontent.com/gynryiie/Auto-Crafter/master/TriggernometryExp
 5. Enable the `Auto Crafter` Trigger in the `Local Triggers`
 
 ## Setup [WIP]
-###Vanilla (with ACT and ACT plugins only)
+### Vanilla (with ACT and ACT plugins only)
 Keybind:
   Keybind>System>\[Confirm: NUM0\]
   Place first macro in hotbar with keybind "1"
@@ -47,7 +47,7 @@ Keybind:
   and so on...
   
   
-###Dalamud Plugins
+### Dalamud Plugins
 -
 
 ## Usage
