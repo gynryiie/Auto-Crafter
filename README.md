@@ -32,7 +32,7 @@ https://raw.githubusercontent.com/gynryiie/Auto-Crafter/master/TriggernometryExp
 5. Enable the `Auto Crafter` Trigger in the `Local Triggers`
 
 ## Setup [WIP]
-### Vanilla (with ACT and ACT plugins only)
+### With Vanilla Client (ACT and ACT plugins only)
 
 1. Go to Keybind, System tab, and set Confirm to `NUM0`
 2. Place first macro in hotbar with keybind `1`
