@@ -18,7 +18,11 @@ An FFXIV auto crafter with extra features such as
    - Failing a synthesis.
 2. Elapsed time
 3. Support for multi-part macro
-4. Optional support and extra features using 3rd-party Dalamud Plugins
+4. Optional support and extra features using 3rd-party Dalamud Plugins such as
+   - Keybindless automation
+   - Conditional crafting steps
+   - Smart action queuing
+   - Extended macro length
 
 ## Installation
 ### Dependencies
