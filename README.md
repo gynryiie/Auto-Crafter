@@ -44,7 +44,7 @@ For multi-part macro
 5. Set second macro's last line to `/e Macro #2 finished`
 6. Place second macro in hotbar with keybind `3`\
    and so on...
-### With ACT + Dalamud Plugins
+### With ACT and Dalamud Plugins
 -
 
 ## Usage
