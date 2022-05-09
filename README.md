@@ -110,5 +110,5 @@ USAGE:
     macro individual [0-99] set the in-game macro from the individual tabs to be used for crafting.
     
 [Requires: Telesto, SomethingNeedsDoing]
-    macro snd [macro name]   set the SND macro to be used for crafting.
+    macro snd [macro name]  set the SND macro to be used for crafting.
 ```
