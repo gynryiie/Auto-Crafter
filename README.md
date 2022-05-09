@@ -77,7 +77,7 @@ Make sure not to have more than 1 instance of the `Auto Crafter` folder trigger 
 ## Setup
 ### With Vanilla Client (ACT and ACT plugins only)
 
-1. Go to Keybind, System tab, and set Confirm to `NUM0`
+1. Go to `Keybind`, `System tab`, and set `Confirm` to `NUM0`
 2. Place first macro in hotbar with keybind `1`
 
 For multi-part macro
