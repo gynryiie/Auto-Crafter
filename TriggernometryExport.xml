@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <TriggernometryExport Version="1">
-  <ExportedFolder FFXIVJobFilterEnabled="True" FFXIVJobFilter="32640" Id="81b2977f-5915-4ea5-bec6-0db8aa8ed3f0" Name="Auto Crafter v2.3" Enabled="true">
+  <ExportedFolder FFXIVJobFilterEnabled="True" FFXIVJobFilter="32640" Id="81b2977f-5915-4ea5-bec6-0db8aa8ed3f0" Name="Auto Crafter v2.3.1" Enabled="false">
     <Folders />
     <Triggers>
       <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Auto Craft Toggle" Id="6748436f-717b-4235-b0c7-2b6de62cdaa4" RegularExpression="^00\|.*\|0038\|\|(?:(?&lt;autocraft&gt;ac|autocraft)(?: (on|off))?|(?&lt;telestro&gt;where plogon))$">
