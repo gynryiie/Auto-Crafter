@@ -106,9 +106,9 @@ USAGE:
     macro keybind [1-9]     set the initial keybind to be used for synthesizing.
     
 [Requires: Telesto, MacroChain]
-    macro shared [0-99]     set the index of the in-game macro from the shared tabs to be used for synthesizing.
-    macro individual [0-99] set the index of the in-game macro from the individual tabs to be used for synthesizing.
+    macro shared [0-99]     set the index of the in-game macro from the shared tabs to be used for crafting.
+    macro individual [0-99] set the index of the in-game macro from the individual tabs to be used for crafting.
     
 [Requires: Telesto, SomethingNeedsDoing]
-    macro snd [macro name]   set the SND macro to be used for synthesizing.
+    macro snd [macro name]   set the SND macro to be used for crafting.
 ```
