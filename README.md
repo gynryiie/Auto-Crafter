@@ -97,10 +97,14 @@ ALIASES:
 USAGE:
   /e autocraft [subcommand]
 >>Subcommands:
-    <none>        toggles the autocrafting on and off.
-    on            turns on autocrafting.
-    off           turns off autocrafting.
-    [craft count] set the limit of crafted items.
-    set [amount]  set the current crafted count to the specified amount.
-    reset         reset the current count and the elapsed time to 0.
+    <none>                  toggles the autocrafting on and off.
+    on                      turns on autocrafting.
+    off                     turns off autocrafting.
+    [craft count]           set the limit of crafted items.
+    set [amount]            set the current crafted count to the specified amount.
+    reset                   reset the current count and the elapsed time to 0.
+    macro keybind [1-9]     set the initial keybind to be used for synthesizing.
+    macro shared [0-99]     [Requires: Telesto, MacroChain] set the index of the in-game macro from the shared tabs to be used for synthesizing.
+    macro individual [0-99] [Requires: Telesto, MacroChain] set the index of the in-game macro from the individual tabs to be used for synthesizing.
+    macro snd [macro name]  [Requires: Telesto, SomethingNeedsDoing] set the SND macro to be used for synthesizing.
 ```
