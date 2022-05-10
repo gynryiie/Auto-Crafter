@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <TriggernometryExport Version="1">
-  <ExportedFolder FFXIVJobFilterEnabled="True" FFXIVJobFilter="32640" Id="81b2977f-5915-4ea5-bec6-0db8aa8ed3f0" Name="Auto Crafter v2.3.1" Enabled="false">
+  <ExportedFolder FFXIVJobFilter="32640" Id="81b2977f-5915-4ea5-bec6-0db8aa8ed3f0" Name="Auto Crafter v2.3.3" Enabled="true">
     <Folders />
     <Triggers>
-      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Auto Craft Toggle" Id="6748436f-717b-4235-b0c7-2b6de62cdaa4" RegularExpression="^00\|.*\|0038\|\|(?:(?&lt;autocraft&gt;ac|autocraft)(?: (on|off))?|(?&lt;telestro&gt;where plogon))$">
+      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Auto Craft Toggle" Id="6748436f-717b-4235-b0c7-2b6de62cdaa4" RegularExpression="^00\|.*\|0038\|\|(?:(?&lt;autocraft&gt;ac|autocraft)(?: (on|off))?|(?&lt;dalamud&gt;where plogon))$">
         <Actions>
           <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="acstatus" VariableExpression="max(${var:acstatus}≠1, ${func:length:${1}}-1)%2" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
             <Condition Enabled="true" Grouping="Or">
@@ -70,17 +70,17 @@
           </Action>
           <Action OrderNumber="14" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: { &quot;command&quot;: &quot;/pcraft run loop 1 CheckPlugins&quot; } }" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="GenericJson">
             <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${evar:telestro}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${evar:dalamud}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Action>
-          <Action OrderNumber="15" VariableOp="SetNumeric" VariableName="telestro" VariableExpression="0" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+          <Action OrderNumber="15" VariableOp="SetNumeric" VariableName="dalamud" VariableExpression="0" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
             <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${evar:telestro}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${evar:dalamud}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Action>
-          <Action OrderNumber="16" VariableOp="SetNumeric" VariableName="telestro" VariableExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+          <Action OrderNumber="16" VariableOp="SetNumeric" VariableName="dalamud" VariableExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
             <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${telestro}" ExpressionTypeL="String" ExpressionR="where plogon" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${dalamud}" ExpressionTypeL="String" ExpressionR="where plogon" ExpressionTypeR="String" ConditionType="StringEqualCase" />
             </Condition>
           </Action>
         </Actions>
@@ -141,7 +141,7 @@
               <ConditionSingle Enabled="true" ExpressionL="${func:length:${macroID}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
             </Condition>
           </Action>
-          <Action OrderNumber="9" SystemBeepFreqExpression="500" KeypressType="WindowMessage" KeyPressExpression="1" KeyPressCode="49+${numeric:if(${func:length:${macro}},(${macro}),${var:macroID}-1)}" KeyPressWindow="FINAL FANTASY XIV" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="KeyPress" Description="Presses 1 [ keybind ]" DescriptionOverride="True">
+          <Action OrderNumber="9" SystemBeepFreqExpression="500" KeypressType="WindowMessage" KeyPressExpression="1" KeyPressCode="49+${numeric:if(${func:length:${macro}},(${macro}),${var:macroID}-1)}" KeyPressWindow="FINAL FANTASY XIV" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="KeyPress" Description="Execute Macro [ keybind ]" DescriptionOverride="True">
             <Condition Enabled="true" Grouping="And">
               <ConditionGroup Enabled="true" Grouping="Or">
                 <ConditionSingle Enabled="true" ExpressionL="(${macro})" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
@@ -156,7 +156,7 @@
               <ConditionSingle Enabled="true" ExpressionL="${var:macroType}" ExpressionTypeL="String" ExpressionR="keybind" ExpressionTypeR="String" ConditionType="StringEqualCase" />
             </Condition>
           </Action>
-          <Action OrderNumber="10" SystemBeepFreqExpression="500" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: { &quot;command&quot;: &quot;/runmacro ${var:macroID} ${var:macroType}&quot; } }" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="GenericJson" Description="Presses 1 [ shared/individual ]" DescriptionOverride="True">
+          <Action OrderNumber="10" SystemBeepFreqExpression="500" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: { &quot;command&quot;: &quot;/runmacro ${var:macroID} ${var:macroType}&quot; } }" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="GenericJson" Description="Execute Macro [ shared/individual ] [ DALAMUD ]" DescriptionOverride="True">
             <Condition Enabled="true" Grouping="And">
               <ConditionGroup Enabled="true" Grouping="Or">
                 <ConditionSingle Enabled="false" ExpressionL="(${macro})" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
@@ -174,7 +174,7 @@
               </ConditionGroup>
             </Condition>
           </Action>
-          <Action OrderNumber="11" SystemBeepFreqExpression="500" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: { &quot;command&quot;: &quot;/pcraft run loop 1 ${var:macroID}&quot; } }" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="GenericJson" Description="Presses 1 [ snd ]" DescriptionOverride="True">
+          <Action OrderNumber="11" SystemBeepFreqExpression="500" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: { &quot;command&quot;: &quot;/pcraft run loop 1 ${var:macroID}&quot; } }" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="GenericJson" Description="Execute Macro [ snd ] [ DALAMUD ]" DescriptionOverride="True">
             <Condition Enabled="true" Grouping="And">
               <ConditionGroup Enabled="true" Grouping="Or">
                 <ConditionSingle Enabled="true" ExpressionL="(${macro})" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
@@ -261,6 +261,7 @@
               <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="That Which Binds Us" ExpressionTypeR="String" ConditionType="StringEqualCase" />
               <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="カンパニーアクション：錬精度上昇量アップ" ExpressionTypeR="String" ConditionType="StringEqualCase" />
               <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="錬精度上昇量アップ" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${par}" ExpressionTypeL="String" ExpressionR="pause" ExpressionTypeR="String" ConditionType="StringEqualCase" />
             </Condition>
           </Action>
           <Action OrderNumber="23" VariableName="repair" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
@@ -335,31 +336,31 @@
           <Action OrderNumber="27" AuraName="cBase" AuraImage="https://raw.githubusercontent.com/gynryiie/assets/master/icons/progressBg.png" AuraXIniExpression="(${_screenwidth}-156)/2" AuraYIniExpression="floor(689/1080*${_screenheight}*27/26)" AuraWIniExpression="156" AuraHIniExpression="14" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura">
             <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${evar:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-              <ConditionSingle Enabled="true" ExpressionL="${var:telestro}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:dalamud}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Action>
           <Action OrderNumber="28" AuraName="cProgress1" AuraImage="https://raw.githubusercontent.com/gynryiie/assets/master/icons/progressF1.png" AuraXIniExpression="${_imageaura[cBase].x}" AuraYIniExpression="${_imageaura[cBase].y}" AuraWIniExpression="${_imageaura[cProgress1].w}" AuraHIniExpression="14" AuraOIniExpression="100" AuraWTickExpression="min(((${_systemtimems}-${var:pressconfirm})/1800)*152, 152)" VariableOp="SetNumeric" VariableName="casting" VariableExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura">
             <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${evar:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-              <ConditionSingle Enabled="true" ExpressionL="${var:telestro}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:dalamud}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Action>
           <Action OrderNumber="29" AuraName="cProgress2" AuraImage="https://raw.githubusercontent.com/gynryiie/assets/master/icons/progressF2.png" AuraXIniExpression="${_imageaura[cBase].x}" AuraYIniExpression="${_imageaura[cBase].y}" AuraWIniExpression="${_imageaura[cProgress2].w}" AuraHIniExpression="14" AuraOIniExpression="100" AuraWTickExpression="(${_systemtimems}-${var:pressconfirm}-1800)/3000*152" VariableOp="SetNumeric" VariableName="casting" VariableExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura">
             <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${_systemtimems}-${var:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="1800" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
-              <ConditionSingle Enabled="true" ExpressionL="${var:telestro}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:dalamud}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Action>
           <Action OrderNumber="30" AuraOp="DeactivateAuraRegex" AuraName="cProgress|cBase" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura">
             <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${evar:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-              <ConditionSingle Enabled="true" ExpressionL="${var:telestro}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:dalamud}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Action>
           <Action OrderNumber="31" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="FINAL FANTASY XIV" VariableOp="SetNumeric" VariableName="synthesizeQueued" VariableExpression="0" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Description="Initialize Synthesize Queue Flag [ DALAMUD ]" DescriptionOverride="True">
             <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${_systemtimems}-${var:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="2500" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-              <ConditionSingle Enabled="true" ExpressionL="${var:telestro}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:dalamud}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
               <ConditionSingle Enabled="true" ExpressionL="${evar:synthesizeQueued}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Action>
@@ -371,7 +372,7 @@
           <Action OrderNumber="33" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="FINAL FANTASY XIV" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="KeyPress">
             <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${_systemtimems}-${var:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="1800" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-              <ConditionSingle Enabled="true" ExpressionL="${var:telestro}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:dalamud}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Action>
           <Action OrderNumber="34" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" TriggerId="5786cb19-de10-4ef4-b9e8-ed84bf4e2c42" TriggerForce="regexp" ActionType="Trigger">
@@ -380,7 +381,7 @@
               <ConditionSingle Enabled="true" ExpressionL="${evar:synthesizeQueued}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Action>
-          <Action OrderNumber="35" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="FINAL FANTASY XIV" VariableName="synthesizeQueued" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+          <Action OrderNumber="35" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="FINAL FANTASY XIV" VariableName="synthesizeQueued" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Description="Unset synthesizeQueued  [ DALAMUD ]" DescriptionOverride="True">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${evar:synthesizeQueued}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
               <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You begin synthesizing" ExpressionTypeR="String" ConditionType="StringEqualCase" />
