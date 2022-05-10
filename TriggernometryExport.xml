@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <TriggernometryExport Version="1">
-  <ExportedFolder FFXIVJobFilter="32640" Id="81b2977f-5915-4ea5-bec6-0db8aa8ed3f0" Name="Auto Crafter v2.3.3" Enabled="true">
+  <ExportedFolder FFXIVJobFilter="32640" Id="81b2977f-5915-4ea5-bec6-0db8aa8ed3f0" Name="Auto Crafter v2.3.4" Enabled="false">
     <Folders />
     <Triggers>
       <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Auto Craft Toggle" Id="6748436f-717b-4235-b0c7-2b6de62cdaa4" RegularExpression="^00\|.*\|0038\|\|(?:(?&lt;autocraft&gt;ac|autocraft)(?: (on|off))?|(?&lt;dalamud&gt;where plogon))$">
@@ -85,6 +85,7 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
       </Trigger>
       <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Auto Crafter" Id="5786cb19-de10-4ef4-b9e8-ed84bf4e2c42" RegularExpression="^12\||\|0(?:038\|\|(?:Macro #(?&lt;macro&gt;\d) finished|(?:ac|autocraft) (?:(?&lt;par&gt;reset|pause)|(?:limit )?(?&lt;limit&gt;\d+)|set (?&lt;material&gt;\d+)|macro (?:(?&lt;macroType&gt;individual) (?&lt;macroID&gt;[1-9]?\d)|(?&lt;macroType&gt;shared) (?&lt;macroID&gt;[1-9]?\d)|(?&lt;macroType&gt;snd) (?&lt;macroID&gt;.*)|(?&lt;macroType&gt;keybind) (?&lt;macroID&gt;[1-9]))$))|03C\||8(?:3C\||B0\|\|(?:You lose the effect of ..(?&lt;regex&gt;Well Fed|Medicated|Squadron Spiritbonding Manual|That Which Binds Us)\.|.*「(?&lt;regex&gt;カンパニーアクション：錬精度上昇量アップ|強化薬|錬精度上昇量アップ|食事)」が切れた。)|42\|\|(?:.+(?&lt;regex&gt;は所持品から材料を取り出した。|は製作に失敗した……|のマテリア精製をした！)|(?&lt;regex&gt;You begin synthesizing|Your synthesis fails!|You successfully extract a))|39\|\|(?:.+(?&lt;regex&gt;錬精度が)|(?&lt;regex&gt;Your spiritbond with the)|The condition of your.+ (?&lt;regex&gt;0%)|.*の耐久度が(?&lt;regex&gt;0%)になった。)|C2\|\|(?:.+(?&lt;regex&gt;を完成させた！)|(?&lt;regex&gt;You synthesize))))" Description="Auto-spiritbond crafter gear, Supported language (EN_JP)">
         <Actions>
@@ -393,6 +394,7 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
       </Trigger>
     </Triggers>
   </ExportedFolder>
