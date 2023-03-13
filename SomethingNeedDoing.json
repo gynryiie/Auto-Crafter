@@ -1,0 +1,176 @@
+{
+  "$type": "SomethingNeedDoing.SomethingNeedDoingConfiguration, SomethingNeedDoing",
+  "Version": 1,
+  "RootFolder": {
+    "$type": "SomethingNeedDoing.FolderNode, SomethingNeedDoing",
+    "Name": "/",
+    "Children": [
+      {
+        "$type": "SomethingNeedDoing.FolderNode, SomethingNeedDoing",
+        "Name": "Auto Crafter (Core) (Do not Modify)",
+        "Children": [
+          {
+            "$type": "SomethingNeedDoing.MacroNode, SomethingNeedDoing",
+            "Name": "Synthesize",
+            "Contents": "/waitaddon \"RecipeNote\"\n/click \"synthesize\"",
+            "CraftingLoop": false,
+            "CraftLoopCount": 3,
+            "IsLua": false
+          },
+          {
+            "$type": "SomethingNeedDoing.MacroNode, SomethingNeedDoing",
+            "Name": "CheckPlugins",
+            "Contents": "/e where plogon",
+            "CraftingLoop": false,
+            "CraftLoopCount": 0,
+            "IsLua": false
+          },
+          {
+            "$type": "SomethingNeedDoing.MacroNode, SomethingNeedDoing",
+            "Name": "RepairAll",
+            "Contents": "/generalaction repair\n/waitaddon \"Repair\" <maxwait.5>\n/click \"repair_all\" <wait.0.1>\n/waitaddon \"Repair\" <maxwait.5>\n/generalaction repair",
+            "CraftingLoop": false,
+            "CraftLoopCount": 0,
+            "IsLua": false
+          },
+          {
+            "$type": "SomethingNeedDoing.MacroNode, SomethingNeedDoing",
+            "Name": "RepairAll (JP)",
+            "Contents": "/generalaction 修理\n/waitaddon \"Repair\" <maxwait.5>\n/click \"repair_all\" <wait.0.1>\n/waitaddon \"Repair\" <maxwait.5>\n/generalaction 修理",
+            "CraftingLoop": false,
+            "CraftLoopCount": 0,
+            "IsLua": false
+          },
+          {
+            "$type": "SomethingNeedDoing.MacroNode, SomethingNeedDoing",
+            "Name": "MateriaExtraction",
+            "Contents": "/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106\n/sendkey 106",
+            "CraftingLoop": false,
+            "CraftLoopCount": 5,
+            "IsLua": false
+          }
+        ]
+      },
+      {
+        "$type": "SomethingNeedDoing.FolderNode, SomethingNeedDoing",
+        "Name": "Crafting Macros (Samples Only)",
+        "Children": [
+          {
+            "$type": "SomethingNeedDoing.MacroNode, SomethingNeedDoing",
+            "Name": "Grade 5 Alkahest",
+            "Contents": "/waitaddon \"Synthesis\"\n/requirestats 3457 3499 406\n/ac Manipulation\n/ac \"Waste Not II\"\n/ac \"Delicate Synthesis\"\n/ac Innovation\n/ac \"Preparatory Touch\"\n/ac \"Preparatory Touch\"\n/ac \"Preparatory Touch\"\n/ac \"Byregot's Blessing\"\n/ac Groundwork",
+            "CraftingLoop": false,
+            "CraftLoopCount": 33,
+            "IsLua": false
+          },
+          {
+            "$type": "SomethingNeedDoing.MacroNode, SomethingNeedDoing",
+            "Name": "Grade 7 Alkahest",
+            "Contents": "/waitaddon \"Synthesis\"\n/ac \"Muscle Memory\"\n/ac Manipulation\n/ac \"Waste Not II\"\n/ac Veneration\n/ac Groundwork\n/ac \"Careful Synthesis\"\n/ac Innovation\n/ac \"Preparatory Touch\"\n/ac \"Preparatory Touch\"\n/ac \"Preparatory Touch\"\n/ac \"Preparatory Touch\"\n/ac \"Master's Mend\"\n/ac Innovation\n/ac \"Preparatory Touch\"\n/ac \"Great Strides\"\n/ac \"Byregot's Blessing\"\n/ac \"Careful Synthesis\"",
+            "CraftingLoop": false,
+            "CraftLoopCount": 0,
+            "IsLua": false
+          },
+          {
+            "$type": "SomethingNeedDoing.MacroNode, SomethingNeedDoing",
+            "Name": "Grade 6 Tincture",
+            "Contents": "/waitaddon \"Synthesis\"\n/ac \"Muscle Memory\"\n/ac \"Manipulation\"\n/ac \"Veneration\"\n/ac \"Waste Not\"\n/ac \"Groundwork\"\n/ac \"Groundwork\"\n/ac \"Preparatory Touch\"\n/ac \"Preparatory Touch\"\n/ac \"Preparatory Touch\"\n/ac \"Innovation\"\n/ac \"Prudent Touch\"\n/ac \"Advanced Touch\"\n/ac \"Advanced Touch\"\n/ac \"Byregot's Blessing\"\n/ac \"Careful Synthesis\"",
+            "CraftingLoop": false,
+            "CraftLoopCount": 5,
+            "IsLua": false
+          },
+          {
+            "$type": "SomethingNeedDoing.MacroNode, SomethingNeedDoing",
+            "Name": "Grade 7 Tincture",
+            "Contents": "/waitaddon \"Synthesis\"\n/requirestats 3700 3722 531\n/ac \"Muscle Memory\"\n/ac \"Prudent Touch\"\n/ac Manipulation\n/ac Veneration\n/ac \"Waste Not II\"\n/ac Groundwork\n/ac Groundwork\n/ac \"Delicate Synthesis\"\n/ac \"Preparatory Touch\"\n/ac Innovation <wait.2>\n/ac \"Preparatory Touch\"\n/ac \"Preparatory Touch\"\n/ac \"Preparatory Touch\"\n/ac \"Byregot's Blessing\"\n/ac Groundwork",
+            "CraftingLoop": false,
+            "CraftLoopCount": 0,
+            "IsLua": false
+          },
+          {
+            "$type": "SomethingNeedDoing.MacroNode, SomethingNeedDoing",
+            "Name": "Lv.82-89",
+            "Contents": "/waitaddon \"Synthesis\"\n/ac Reflect\n/ac Manipulation\n/ac \"Waste Not II\"\n/ac Innovation\n/ac \"Preparatory Touch\"\n/ac \"Preparatory Touch\"\n/ac \"Preparatory Touch\"\n/ac \"Byregot's Blessing\"\n/ac Veneration\n/ac Groundwork\n/ac Groundwork",
+            "CraftingLoop": false,
+            "CraftLoopCount": 0,
+            "IsLua": false
+          },
+          {
+            "$type": "SomethingNeedDoing.MacroNode, SomethingNeedDoing",
+            "Name": "Tsai tou Vounou",
+            "Contents": "/waitaddon \"Synthesis\"\n/ac Reflect\n/ac \"Waste Not II\"\n/ac Innovation\n/ac \"Preparatory Touch\"\n/ac \"Preparatory Touch\"\n/ac \"Byregot's Blessing\"\n/ac Veneration\n/ac Groundwork\n/ac Groundwork\n/ac Groundwork",
+            "CraftingLoop": false,
+            "CraftLoopCount": 0,
+            "IsLua": false
+          },
+          {
+            "$type": "SomethingNeedDoing.MacroNode, SomethingNeedDoing",
+            "Name": "Trained Eye",
+            "Contents": "/waitaddon \"Synthesis\"\n/ac \"Trained Eye\"\n/ac \"Veneration\"\n/ac \"Groundwork\"",
+            "CraftingLoop": false,
+            "CraftLoopCount": 6,
+            "IsLua": false
+          },
+          {
+            "$type": "SomethingNeedDoing.MacroNode, SomethingNeedDoing",
+            "Name": "Grade 6 Tincture No HQ",
+            "Contents": "/waitaddon \"Synthesis\"\n/ac \"Muscle Memory\"\n/ac Manipulation\n/ac Veneration\n/ac \"Waste Not II\"\n/ac Groundwork\n/ac Groundwork\n/ac \"Basic Touch\"\n/ac Innovation\n/ac \"Preparatory Touch\"\n/ac \"Basic Touch\"\n/ac \"Standard Touch\"\n/ac \"Advanced Touch\"\n/ac Innovation\n/ac \"Basic Touch\"\n/ac \"Standard Touch\"\n/ac \"Advanced Touch\"\n/ac \"Prudent Touch\"\n/ac Innovation\n/ac \"Trained Finesse\"\n/ac \"Trained Finesse\"\n/ac \"Great Strides\"\n/ac \"Byregot's Blessing\"\n/ac \"Careful Synthesis\"",
+            "CraftingLoop": false,
+            "CraftLoopCount": 0,
+            "IsLua": false
+          },
+          {
+            "$type": "SomethingNeedDoing.MacroNode, SomethingNeedDoing",
+            "Name": "90L35D3S",
+            "Contents": "/waitaddon \"Synthesis\"\n/ac \"Muscle Memory\" <wait.3>\n/ac Groundwork <wait.3>\n/ac \"Master's Mend\" <wait.3>\n/ac \"Delicate Synthesis\" <wait.3>\n/ac Manipulation <wait.2>\n/ac \"Delicate Synthesis\" <wait.3>\n/ac \"Waste Not II\" <wait.2>\n/ac \"Preparatory Touch\" <wait.3>\n/ac \"Preparatory Touch\" <wait.3>\n/ac Innovation <wait.2>\n/ac \"Preparatory Touch\" <wait.3>\n/ac \"Preparatory Touch\" <wait.3>\n/ac \"Great Strides\" <wait.2>\n/ac \"Byregot's Blessing\" <wait.3>\n/ac Groundwork <wait.3>",
+            "CraftingLoop": false,
+            "CraftLoopCount": 0,
+            "IsLua": false
+          },
+          {
+            "$type": "SomethingNeedDoing.MacroNode, SomethingNeedDoing",
+            "Name": "90L70D3S",
+            "Contents": "/waitaddon \"Synthesis\"\n/ac \"Muscle Memory\" <wait.3>\n/ac Manipulation <wait.2>\n/ac Veneration <wait.2>\n/ac \"Waste Not II\" <wait.2>\n/ac Groundwork <wait.3>\n/ac Groundwork <wait.3>\n/ac \"Careful Synthesis\" <wait.3>\n/ac Innovation <wait.2>\n/ac \"Preparatory Touch\" <wait.3>\n/ac \"Preparatory Touch\" <wait.3>\n/ac \"Preparatory Touch\" <wait.3>\n/ac \"Preparatory Touch\" <wait.3>\n/ac Innovation <wait.2>\n/ac \"Prudent Touch\" <wait.3>\n/ac \"Prudent Touch\" <wait.3>\n/ac \"Basic Touch\" <wait.3>\n/ac Innovation <wait.2>\n/ac \"Trained Finesse\" <wait.3>\n/ac \"Trained Finesse\" <wait.3>\n/ac \"Great Strides\" <wait.2>\n/ac \"Byregot's Blessing\" <wait.3>\n/ac \"Careful Synthesis\" <wait.3>",
+            "CraftingLoop": false,
+            "CraftLoopCount": 0,
+            "IsLua": false
+          },
+          {
+            "$type": "SomethingNeedDoing.MacroNode, SomethingNeedDoing",
+            "Name": "90L70D2S",
+            "Contents": "/waitaddon \"Synthesis\"\n/ac \"Muscle Memory\" <wait.3>\n/ac Manipulation <wait.2>\n/ac Veneration <wait.2>\n/ac \"Waste Not\" <wait.2>\n/ac Groundwork <wait.3>\n/ac \"Careful Synthesis\" <wait.3>\n/ac \"Preparatory Touch\" <wait.3>\n/ac \"Preparatory Touch\" <wait.3>\n/ac Innovation <wait.2>\n/ac \"Prudent Touch\" <wait.3>\n/ac \"Prudent Touch\" <wait.3>\n/ac \"Prudent Touch\" <wait.3>\n/ac \"Prudent Touch\" <wait.3>\n/ac Innovation <wait.2>\n/ac \"Prudent Touch\" <wait.3>\n/ac \"Basic Touch\" <wait.3>\n/ac \"Great Strides\" <wait.2>\n/ac \"Byregot's Blessing\" <wait.3>\n/ac \"Prudent Synthesis\" <wait.3>\n/ac \"Prudent Synthesis\" <wait.3>\n/ac \"Careful Synthesis\" <wait.3>",
+            "CraftingLoop": false,
+            "CraftLoopCount": 0,
+            "IsLua": false
+          },
+          {
+            "$type": "SomethingNeedDoing.MacroNode, SomethingNeedDoing",
+            "Name": "90L35D2S",
+            "Contents": "/waitaddon \"Synthesis\"\n/ac Reflect <wait.3>\n/ac Manipulation <wait.2>\n/ac Innovation <wait.2>\n/ac \"Preparatory Touch\" <wait.3>\n/ac \"Prudent Touch\" <wait.3>\n/ac \"Prudent Touch\" <wait.3>\n/ac \"Prudent Touch\" <wait.3>\n/ac \"Prudent Touch\" <wait.3>\n/ac \"Prudent Touch\" <wait.3>\n/ac \"Prudent Touch\" <wait.3>\n/ac Manipulation <wait.2>\n/ac \"Great Strides\" <wait.2>\n/ac Innovation <wait.2>\n/ac \"Byregot's Blessing\" <wait.3>\n/ac Veneration <wait.2>\n/ac Groundwork <wait.3>\n/ac \"Prudent Synthesis\" <wait.3>\n/ac \"Prudent Synthesis\" <wait.3>\n/ac \"Careful Synthesis\" <wait.3>",
+            "CraftingLoop": false,
+            "CraftLoopCount": 0,
+            "IsLua": false
+          }
+        ]
+      }
+    ]
+  },
+  "CraftSkip": true,
+  "SmartWait": true,
+  "QualitySkip": true,
+  "LoopTotal": false,
+  "LoopEcho": false,
+  "DisableMonospaced": false,
+  "UseCraftLoopTemplate": false,
+  "CraftLoopTemplate": "/craft {{count}}\n/waitaddon \"RecipeNote\" <maxwait.5>/click \"synthesize\"/waitaddon \"Synthesis\" <maxwait.5>{{macro}}/loop",
+  "CraftLoopFromRecipeNote": true,
+  "CraftLoopMaxWait": 5,
+  "CraftLoopEcho": false,
+  "MaxTimeoutRetries": 3,
+  "NoisyErrors": true,
+  "BeepFrequency": 900,
+  "BeepDuration": 250,
+  "BeepCount": 3,
+  "ChatType": 1,
+  "ErrorChatType": 2
+}
