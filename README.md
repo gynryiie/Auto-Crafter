@@ -45,7 +45,7 @@ Optional support and extra features using 3rd-party Dalamud Plugins such as
 ### Optional Dependencies
 Dalamud Plugins:
    - Telesto
-   - SomethingNeedsDoing
+   - [SomethingNeedsDoing](https://raw.githubusercontent.com/daemitus/MyDalamudPlugins/master/pluginmaster.json)
    - MacroChain
 
 ### Adding the Trigger
@@ -88,8 +88,13 @@ For multi-part macro
 6. Place second macro in hotbar with keybind `3`\
    and so on...
 ### With ACT and Dalamud Plugins
--
-
+1. Install the required Plugins
+2. Download `SomethingNeedDoing.json` from the files above.
+3. Cut/Copy and Paste it in `%appdata%\XIVLauncher\installedPlugins`
+4. Enter `/pcraft` in game to open SomethingNeedsDoing
+5. Add your macros with a unique title.
+6. Add the command `/waitaddon "Synthesis"` at the start of all your macros
+7. Set your active macro using the command `/e ac macro snd [macro name]`
 ## Usage
 ```
 ALIASES:
