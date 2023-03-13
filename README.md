@@ -90,7 +90,7 @@ For multi-part macro
 ### With ACT and Dalamud Plugins
 1. Install the required Plugins
 2. Download `SomethingNeedDoing.json` from the files above.
-3. Cut/Copy and Paste it in `%appdata%\XIVLauncher\installedPlugins`
+3. Cut/Copy and Paste it in `%appdata%\XIVLauncher\\pluginConfigs`
 4. Enter `/pcraft` in game to open SomethingNeedsDoing
 5. Add your macros with a unique title.
 6. Add the command `/waitaddon "Synthesis"` at the start of all your macros
