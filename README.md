@@ -114,7 +114,5 @@ USAGE:
 [Requires: Telesto, MacroChain]
     macro shared [0-99]     set the in-game macro from the shared tabs to be used for crafting.
     macro individual [0-99] set the in-game macro from the individual tabs to be used for crafting.
-    
-[Requires: Telesto, SomethingNeedsDoing]
-    macro snd [macro name]  set the SND macro to be used for crafting.
+    extract                 extracts all materia from spiritbonded items
 ```
