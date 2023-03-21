@@ -85,7 +85,7 @@ For multi-part macro
 3. Set first macro's last line to `/e Macro #1 finished`
 4. Place second macro in hotbar with keybind `2`
 5. Set second macro's last line to `/e Macro #2 finished`
-6. Place second macro in hotbar with keybind `3`\
+6. Place third macro in hotbar with keybind `3`\
    and so on...
 ### With ACT and Dalamud Plugins
 1. Install the required Plugins
