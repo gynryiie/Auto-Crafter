@@ -3,7 +3,7 @@
 ## About
 An FFXIV Auto Crafter as an ACT Triggernometry trigger, but why?
 - not another application you need to open (if you always have ACT open)
-- uses log lines to indentify the next step, for reliability and efficiency
+- uses log lines to identify the next step, for reliability and efficiency
 - doesn't actually require any of your act plugins to be up to date in order to function!
 
 Basically, this will likely never break, unless there's a change with the act parsing plugin log syntax
