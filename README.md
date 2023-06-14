@@ -89,12 +89,13 @@ For multi-part macro
    and so on...
 ### With ACT and Dalamud Plugins
 1. Install the required Plugins
-2. Download `SomethingNeedDoing.json` from the files above.
-3. Cut/Copy and Paste it in `%appdata%\XIVLauncher\pluginConfigs`
-4. Enter `/pcraft` in game to open SomethingNeedsDoing
-5. Add your macros with a unique title.
-6. Add the command `/waitaddon "Synthesis"` at the start of all your macros
-7. Set your active macro using the command `/e ac macro snd [macro name]`
+2. Use the port `51323` in Telesto Plugin, and make sure the endpoint is running.
+3. Download `SomethingNeedDoing.json` from the files above.
+4. Cut/Copy and Paste it in `%appdata%\XIVLauncher\pluginConfigs`
+5. Enter `/pcraft` in game to open SomethingNeedsDoing
+6. Add your macros with a unique title.
+7. Add the command `/waitaddon "Synthesis"` at the start of all your macros
+8. Set your active macro using the command `/e ac macro snd [macro name]`
 ## Usage
 ```
 ALIASES:
