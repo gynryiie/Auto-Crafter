@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <TriggernometryExport Version="1">
-  <ExportedFolder FFXIVJobFilter="32640" Id="81b2977f-5915-4ea5-bec6-0db8aa8ed3f0" Name="Auto Crafter v2.4.0" Enabled="true">
+  <ExportedFolder FFXIVJobFilter="32640" Id="81b2977f-5915-4ea5-bec6-0db8aa8ed3f0" Name="Auto Crafter v2.4.1" Enabled="true">
     <Folders />
     <Triggers>
       <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Auto Craft Toggle" Id="6748436f-717b-4235-b0c7-2b6de62cdaa4" RegularExpression="^00\|.*\|0038\|\|(?:(?&lt;autocraft&gt;ac|autocraft)(?: (on|off))?|(?&lt;dalamud&gt;where plogon))">
@@ -397,7 +397,9 @@
             <Condition Enabled="false" Grouping="Or" />
           </Action>
         </Actions>
-        <Condition Enabled="false" Grouping="Or" />
+        <Condition Enabled="true" Grouping="Or">
+          <ConditionSingle Enabled="true" ExpressionL="${evar:acstatus}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+        </Condition>
       </Trigger>
     </Triggers>
   </ExportedFolder>
