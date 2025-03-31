@@ -27,12 +27,12 @@ Auto-pause (and BEEPS!!!) for conditions like
 - Failing a synthesis.
 - Most in-game chat log errors in red text
 
-Optional support and extra features using 3rd-party Dalamud Plugins such as
+~~Optional support and extra features using 3rd-party Dalamud Plugins such as~~
 
-  - Keybindless automation
-  - Conditional crafting steps
-  - Smart action queuing
-  - Extended macro length
+  ~~- Keybindless automation~~
+  ~~- Conditional crafting steps~~
+  ~~- Smart action queuing~~
+  ~~- Extended macro length~~
 
 
 ## Installation
@@ -42,11 +42,11 @@ Optional support and extra features using 3rd-party Dalamud Plugins such as
    - FFXIV Parsing Plugin
    - [Triggernometry Plugin](https://github.com/paissaheavyindustries/Triggernometry/releases)
 
-### Optional Dependencies
-Dalamud Plugins:
-   - Telesto
-   - [SomethingNeedsDoing](https://raw.githubusercontent.com/daemitus/MyDalamudPlugins/master/pluginmaster.json)
-   - MacroChain
+~~### Optional Dependencies~~
+~~Dalamud Plugins:~~
+   ~~- Telesto~~
+   ~~- [SomethingNeedsDoing](https://raw.githubusercontent.com/daemitus/MyDalamudPlugins/master/pluginmaster.json)~~
+   ~~- MacroChain~~
 
 ### Adding the Trigger
 
@@ -89,14 +89,14 @@ For multi-part macro
    and so on...
 ### With ACT and Dalamud Plugins
 This was a mistake, this was implemented before Artisan Plugin was created, please just use that if dalamud is up.
-~~1. Install the required Plugins
-2. Use the port `51323` in Telesto Plugin, and make sure the endpoint is running.
-3. Download `SomethingNeedDoing.json` from the files above.
-4. Cut/Copy and Paste it in `%appdata%\XIVLauncher\pluginConfigs`
-5. Enter `/pcraft` in game to open SomethingNeedsDoing
-6. Add your macros with a unique title.
-7. Add the command `/waitaddon "Synthesis"` at the start of all your macros
-8. Set your active macro using the command `/e ac macro snd [macro name]`~~
+~~1. Install the required Plugins~~
+~~2. Use the port `51323` in Telesto Plugin, and make sure the endpoint is running~~
+~~3. Download `SomethingNeedDoing.json` from the files above.~~
+~~4. Cut/Copy and Paste it in `%appdata%\XIVLauncher\pluginConfigs`~~
+~~5. Enter `/pcraft` in game to open SomethingNeedsDoing~~
+~~6. Add your macros with a unique title.~~
+~~7. Add the command `/waitaddon "Synthesis"` at the start of all your macros~~
+~~8. Set your active macro using the command `/e ac macro snd [macro name]`~~
 ## Usage
 ```
 ALIASES:
