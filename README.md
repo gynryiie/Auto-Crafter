@@ -29,10 +29,9 @@ Auto-pause (and BEEPS!!!) for conditions like
 
 ~~Optional support and extra features using 3rd-party Dalamud Plugins such as~~
 
-  ~~- Keybindless automation~~
-  ~~- Conditional crafting steps~~
-  ~~- Smart action queuing~~
-  ~~- Extended macro length~~
+  - ~~Keybindless automation~~
+  - ~~Smart action queuing~~
+  - ~~Extended macro length~~
 
 
 ## Installation
@@ -42,11 +41,11 @@ Auto-pause (and BEEPS!!!) for conditions like
    - FFXIV Parsing Plugin
    - [Triggernometry Plugin](https://github.com/paissaheavyindustries/Triggernometry/releases)
 
-~~### Optional Dependencies~~
+### ~~Optional Dependencies~~
 ~~Dalamud Plugins:~~
-   ~~- Telesto~~
-   ~~- [SomethingNeedsDoing](https://raw.githubusercontent.com/daemitus/MyDalamudPlugins/master/pluginmaster.json)~~
-   ~~- MacroChain~~
+   - ~~Telesto~~
+   - ~~[SomethingNeedsDoing](https://raw.githubusercontent.com/daemitus/MyDalamudPlugins/master/pluginmaster.json)~~
+   - ~~MacroChain~~
 
 ### Adding the Trigger
 
