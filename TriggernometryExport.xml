@@ -1,533 +1,107 @@
 <?xml version="1.0"?>
 <TriggernometryExport PluginVersion="1.2.0.7">
-  <ExportedFolder FFXIVJobFilter="32640" Id="24c2355d-c5ac-49af-9906-520eeab949fb" Name="Auto Triggers" Enabled="true">
-    <Folders>
-      <Folder ZoneFilterEnabled="True" Id="deacc000-4b17-430f-adec-d6dd75bb1f79" ZoneFilterRegularExpression="^ocr$" Name="OCR" Enabled="false">
-        <Folders />
-        <Triggers>
-          <Trigger Enabled="false" Sequential="True" Name="OCR" Id="f7d085bd-fc8b-4d08-a516-841fc97b270c" RegularExpression="ocr (?:(?&lt;param&gt;find|click) (?&lt;search_string&gt;.+?)(?= rect| pt|$) ?(?:(?:(?&lt;ob&gt;rect) (?&lt;rcx&gt;\d+),? (?&lt;rcy&gt;\d+),? (?&lt;rcw&gt;\d+),? (?&lt;rch&gt;\d+)|(?&lt;ob&gt;pt) (?&lt;ptx&gt;\d+),? (?&lt;pty&gt;\d+)))?|(?&lt;param&gt;test|press) (?&lt;keycode&gt;\d+))">
-            <Actions>
-              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableName="ocrBufferScalar" ActionType="Variable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="2" JsonEndpointExpression="http://localhost:1337" JsonPayloadExpression="{&quot;search_string&quot;:&quot;${search_string}&quot;,&quot;param&quot;:&quot;${param}&quot;,&quot;ob&quot;:&quot;${ob}&quot;,&quot;pt&quot;:[&quot;${ptx}&quot;,&quot;${pty}&quot;],&quot;rect&quot;:[&quot;${rcx}&quot;,&quot;${rcy}&quot;,&quot;${rcw}&quot;,&quot;${rch}&quot;]}" JsonFiringExpression="_jsonresponse[path]" SoundRouting="None" TTSRouting="None" ActionType="GenericJson">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${param}" ExpressionTypeL="String" ExpressionR="click" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${param}" ExpressionTypeL="String" ExpressionR="find" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="3" MouseX="(${_jsonresponse[x]}+${_jsonresponse[w]})/2" MouseY="(${_jsonresponse[y]}+${_jsonresponse[h]})/2" SoundRouting="None" TTSRouting="None" TextAuraBackground="#00FF40" TextAuraName="ocrRect" TextAuraExpression="${_jsonresponse[text_found]}" TextAuraXIniExpression="${_jsonresponse[x]}" TextAuraYIniExpression="${_jsonresponse[y]}" TextAuraWIniExpression="${_jsonresponse[w]}-${_jsonresponse[x]}" TextAuraHIniExpression="${_jsonresponse[h]}-${_jsonresponse[y]}" TextAuraOIniExpression="50" ActionType="Mouse">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${param}" ExpressionTypeL="String" ExpressionR="click" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="4" MouseOpType="LeftClick" MouseCoordType="Relative" SoundRouting="None" TTSRouting="None" TextAuraBackground="#00FF40" TextAuraName="ocrRect" TextAuraExpression="${_jsonresponse[text_found]}" TextAuraXIniExpression="${_jsonresponse[x]}" TextAuraYIniExpression="${_jsonresponse[y]}" TextAuraWIniExpression="${_jsonresponse[w]}-${_jsonresponse[x]}" TextAuraHIniExpression="${_jsonresponse[h]}-${_jsonresponse[y]}" TextAuraOIniExpression="50" ActionType="Mouse">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${param}" ExpressionTypeL="String" ExpressionR="click" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="5" JsonEndpointExpression="http://localhost:1337" JsonPayloadExpression="{&quot;search_string&quot;:&quot;${var:search_string}&quot;}" JsonFiringExpression="${_response}" SoundRouting="None" TTSRouting="None">
-                <Condition Enabled="false" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:circleorder.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:circleorder[1]}" ExpressionTypeL="Numeric" ExpressionR="108" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:circleorder[2]}" ExpressionTypeL="Numeric" ExpressionR="92" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" TextAuraFontSize="11.25" TextAuraForeground="White" TextAuraBackground="White" TextAuraOutline="Black" TextAuraName="ocrCropBox" TextAuraXIniExpression="${rcx}" TextAuraYIniExpression="${rcy}" TextAuraWIniExpression="${rcw}-${rcx}" TextAuraHIniExpression="${rch}-${rcy}" TextAuraOIniExpression="10" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" TextAuraFontSize="11.25" TextAuraBackground="#00FF40" TextAuraName="ocrRect" TextAuraExpression="${_jsonresponse[text_found]}" TextAuraXIniExpression="${_jsonresponse[x]}" TextAuraYIniExpression="${_jsonresponse[y]}" TextAuraWIniExpression="${_jsonresponse[w]}-${_jsonresponse[x]}" TextAuraHIniExpression="${_jsonresponse[h]}-${_jsonresponse[y]}" TextAuraOIniExpression="50" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="8.25" TextAuraForeground="#80FF80" TextAuraBackground="#FF8040" TextAuraOutline="Black" TextAuraName="ocr" TextAuraExpression="${regex}" TextAuraXIniExpression="888" TextAuraYIniExpression="833" TextAuraWIniExpression="134" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1000">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" TriggerOp="DisableTrigger" TriggerId="f7d085bd-fc8b-4d08-a516-841fc97b270c" ActionType="Trigger">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:ocrBufferList.size}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="10" ListVariableOp="PopFirst" ListVariableName="ocrBufferList" ListVariableIndex="${lvar:ocrBufferList.size}-1" ListVariableTarget="ocrBufferScalar" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="11" SoundRouting="None" TTSRouting="None" TriggerId="f7d085bd-fc8b-4d08-a516-841fc97b270c" TriggerText="${var:ocrBufferScalar}" TriggerZone="ocr" ActionType="Trigger">
-                <Condition Enabled="false" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:ocrBufferList.size}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                </Condition>
-              </Action>
-            </Actions>
-            <Condition Enabled="false" Grouping="Or" />
-          </Trigger>
-        </Triggers>
-      </Folder>
-      <Folder FFXIVJobFilter="32640" Id="81b2977f-5915-4ea5-bec6-0db8aa8ed3f0" Name="Auto Crafter v2.4.3" Enabled="true">
-        <Folders />
-        <Triggers>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Auto Craft Toggle" Id="6748436f-717b-4235-b0c7-2b6de62cdaa4" RegularExpression="^00\|.*\|0038\|\|(?:(?&lt;autocraft&gt;ac|autocraft)(?: (on|off))?\||(?&lt;dalamud&gt;where plogon))">
-            <Actions>
-              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="acstatus" VariableExpression="0" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${evar:acstatus}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="acstatus" VariableExpression="max(${var:acstatus}≠1, ${func:length:${1}}-1)%2" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${func:length:${autocraft}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TriggerOp="EnableTrigger" TriggerId="5786cb19-de10-4ef4-b9e8-ed84bf4e2c42" ActionType="Trigger">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:acstatus}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" TriggerOp="DisableTrigger" TriggerId="5786cb19-de10-4ef4-b9e8-ed84bf4e2c42" ActionType="Trigger">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:acstatus}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="material" VariableExpression="0" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${evar:material}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="sbet" VariableExpression="00:00" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${evar:sbet}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="macroType" VariableExpression="keybind" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${evar:macroType}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="macroID" VariableExpression="1" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${evar:macroID}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="sbc" VariableExpression="0" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${evar:sbc}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="10" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="matlimit" VariableExpression="0" Enabled="False" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${evar:matlimit}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="11" SoundRouting="None" TTSRouting="None" TextAuraAlignment="TopRight" TextAuraFontSize="9.75" TextAuraForeground="White" TextAuraOutline="#AB9152" TextAuraName="acAura" TextAuraExpression="[MAT:${var:material}${func:padleft(47,${numeric:or(${var:matlimit})}):}${var:matlimit}] [SB:${var:sbc}] [${var:sbet}][${func:toupper:${var:macroType}}: ${var:macroID}]" TextAuraXIniExpression="${_screenwidth}/2" TextAuraYIniExpression="56" TextAuraWIniExpression="${_screenwidth}-54-${_screenwidth}/2" TextAuraHIniExpression="100" TextAuraOIniExpression="100" TextAuraFontName="AxisLatinPro-Regular" ActionType="TextAura">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:acstatus}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="12" SoundRouting="None" TTSRouting="None" TextAuraAlignment="TopRight" TextAuraFontSize="8.25" TextAuraForeground="White" TextAuraOutline="#AB9152" TextAuraName="acAuradev" TextAuraExpression="[${var:acstatus}][${var:pressconfirm}][MAT:${var:material} SPB:${var:sbc}] [${var:sbet}]" TextAuraXIniExpression="851" TextAuraYIniExpression="868" TextAuraWIniExpression="324" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraFontName="AxisLatinPro-Regular" Enabled="False" ActionType="TextAura">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:acstatus}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="13" SoundRouting="None" TTSRouting="None" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="8.25" TextAuraName="acAura" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:acstatus}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="14" SoundRouting="None" TTSRouting="None">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="15" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: { &quot;command&quot;: &quot;/pcraft run loop 1 CheckPlugins&quot; } }" SoundRouting="None" TTSRouting="None" Enabled="False" ActionType="GenericJson" DebugLevel="None">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${evar:dalamud}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="16" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="dalamud" VariableExpression="0" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${evar:dalamud}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="17" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="dalamud" VariableExpression="1" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${dalamud}" ExpressionTypeL="String" ExpressionR="where plogon" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                </Condition>
-              </Action>
-            </Actions>
-            <Condition Enabled="false" Grouping="Or" />
-          </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Auto Crafter" Id="5786cb19-de10-4ef4-b9e8-ed84bf4e2c42" RegularExpression="^12\||\|0(?:038\|\|(?:Macro #(?&lt;macro&gt;\d) finished|(?:ac|autocraft) (?:(?&lt;par&gt;reset|pause)|(?:limit )?(?&lt;limit&gt;\d+)|set (?&lt;material&gt;\d+)|macro (?:(?&lt;macroType&gt;individual) (?&lt;macroID&gt;[1-9]?\d)|(?&lt;macroType&gt;shared) (?&lt;macroID&gt;[1-9]?\d)|(?&lt;macroType&gt;snd) (?&lt;macroID&gt;.*)|(?&lt;macroType&gt;keybind) (?&lt;macroID&gt;[1-9]))$))|03C\||8(?:3C\||B0\|\|(?:You lose the effect of ..(?&lt;regex&gt;Well Fed|Medicated|Squadron Spiritbonding Manual|That Which Binds Us)\.|.*「(?&lt;regex&gt;カンパニーアクション：錬精度上昇量アップ|強化薬|錬精度上昇量アップ|食事)」が切れた。)|42\|\|(?:.+(?&lt;regex&gt;は所持品から材料を取り出した。|は製作に失敗した……|のマテリア精製をした！)|(?&lt;regex&gt;You begin synthesizing|Your synthesis fails!|You successfully extract a))|39\|\|(?:.+(?&lt;regex&gt;錬精度が)|(?&lt;regex&gt;Your spiritbond with the)|The condition of your.+ (?&lt;regex&gt;0%)|.*の耐久度が(?&lt;regex&gt;0%)になった。)|C2\|\|(?:.+(?&lt;regex&gt;を完成させた！)|(?&lt;regex&gt;You synthesize))))" Description="Auto-spiritbond crafter gear, Supported language (EN_JP)">
-            <Actions>
-              <Action OrderNumber="1" MutexOpType="Acquire" MutexName="sbm" SoundRouting="None" TTSRouting="None" ActionType="Mutex">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TriggerOp="DisableTrigger" TriggerId="5786cb19-de10-4ef4-b9e8-ed84bf4e2c42" ActionType="Trigger">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${evar:acstatus}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="sbc" VariableExpression="${var:sbc}+1" ActionType="Variable" Description="Spiritbond count (sbc) + 1" DescriptionOverride="True">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Your spiritbond with the" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="錬精度が" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="sbc" VariableExpression="${var:sbc}-1" ActionType="Variable" Description="sbc-1" DescriptionOverride="True">
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionGroup Enabled="true" Grouping="Or">
-                    <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You successfully extract a" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                    <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="のマテリア精製をした！" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  </ConditionGroup>
-                  <ConditionSingle Enabled="true" ExpressionL="${var:sbc}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="material" VariableExpression="${var:material}+1" ActionType="Variable" Description="material+1" DescriptionOverride="True">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Your synthesis fails!" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は製作に失敗した……" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You synthesize" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="を完成させた！" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="material" VariableExpression="0" ActionType="Variable" Description="material=0" DescriptionOverride="True">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionGroup Enabled="false" Grouping="And">
-                    <ConditionGroup Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You begin synthesizing" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は所持品から材料を取り出した。" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                    </ConditionGroup>
-                    <ConditionSingle Enabled="true" ExpressionL="${var:resett}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                  </ConditionGroup>
-                  <ConditionSingle Enabled="true" ExpressionL="${par}" ExpressionTypeL="String" ExpressionR="reset" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="macroType" VariableExpression="${macroType}" ActionType="Variable" Description="macroType = ${macroType}" DescriptionOverride="True">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${func:length:${macroType}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="macroID" VariableExpression="${macroID}" ActionType="Variable" Description="macroID = ${macroID}" DescriptionOverride="True">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${func:length:${macroID}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="9" SystemBeepFreqExpression="500" KeypressType="WindowMessage" KeyPressExpression="1" KeyPressCode="49+${numeric:if(${func:length:${macro}},(${macro}),${var:macroID}-1)}" KeyPressWindow="FINAL FANTASY XIV" SoundRouting="None" TTSRouting="None" ActionType="KeyPress" Description="Execute Macro [ keybind ]" DescriptionOverride="True">
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionGroup Enabled="true" Grouping="Or">
-                    <ConditionSingle Enabled="true" ExpressionL="(${macro})" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                    <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You begin synthesizing" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                    <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は所持品から材料を取り出した。" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  </ConditionGroup>
-                  <ConditionSingle Enabled="true" ExpressionL="${evar:acstatus}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                  <ConditionGroup Enabled="true" Grouping="Or">
-                    <ConditionSingle Enabled="true" ExpressionL="${var:material}" ExpressionTypeL="Numeric" ExpressionR="${var:matlimit}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                    <ConditionSingle Enabled="true" ExpressionL="${var:matlimit}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                  </ConditionGroup>
-                  <ConditionSingle Enabled="true" ExpressionL="${var:macroType}" ExpressionTypeL="String" ExpressionR="keybind" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="10" SystemBeepFreqExpression="500" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: { &quot;command&quot;: &quot;/runmacro ${var:macroID} ${var:macroType}&quot; } }" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Execute Macro [ shared/individual ] [ DALAMUD ]" DescriptionOverride="True">
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionGroup Enabled="true" Grouping="Or">
-                    <ConditionSingle Enabled="false" ExpressionL="(${macro})" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                    <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You begin synthesizing" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                    <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は所持品から材料を取り出した。" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  </ConditionGroup>
-                  <ConditionSingle Enabled="true" ExpressionL="${evar:acstatus}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                  <ConditionGroup Enabled="true" Grouping="Or">
-                    <ConditionSingle Enabled="true" ExpressionL="${var:material}" ExpressionTypeL="Numeric" ExpressionR="${var:matlimit}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                    <ConditionSingle Enabled="true" ExpressionL="${var:matlimit}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                  </ConditionGroup>
-                  <ConditionGroup Enabled="true" Grouping="Or">
-                    <ConditionSingle Enabled="true" ExpressionL="${var:macroType}" ExpressionTypeL="String" ExpressionR="shared" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                    <ConditionSingle Enabled="true" ExpressionL="${var:macroType}" ExpressionTypeL="String" ExpressionR="individual" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  </ConditionGroup>
-                </Condition>
-              </Action>
-              <Action OrderNumber="11" SystemBeepFreqExpression="500" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: { &quot;command&quot;: &quot;/pcraft run loop 1 ${var:macroID}&quot; } }" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Execute Macro [ snd ] [ DALAMUD ]" DescriptionOverride="True">
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionGroup Enabled="true" Grouping="Or">
-                    <ConditionSingle Enabled="true" ExpressionL="(${macro})" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                    <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You begin synthesizing" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                    <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は所持品から材料を取り出した。" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  </ConditionGroup>
-                  <ConditionSingle Enabled="true" ExpressionL="${evar:acstatus}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                  <ConditionGroup Enabled="true" Grouping="Or">
-                    <ConditionSingle Enabled="true" ExpressionL="${var:material}" ExpressionTypeL="Numeric" ExpressionR="${var:matlimit}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                    <ConditionSingle Enabled="true" ExpressionL="${var:matlimit}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                  </ConditionGroup>
-                  <ConditionSingle Enabled="true" ExpressionL="${var:macroType}" ExpressionTypeL="String" ExpressionR="snd" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="12" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="material" VariableExpression="${material}" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${func:length:${material}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="13" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="matlimit" VariableExpression="${limit}" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${limit}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="14" SoundRouting="None" TTSRouting="None" VariableName="matlimit" ActionType="Variable">
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${limit}" ExpressionTypeL="String" ExpressionR="0" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="15" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="sbst" VariableExpression="${_systemtime}" ActionType="Variable" Description="sbst=_systemtime" DescriptionOverride="True">
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionGroup Enabled="true" Grouping="Or">
-                    <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You begin synthesizing" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                    <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は所持品から材料を取り出した。" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  </ConditionGroup>
-                  <ConditionGroup Enabled="true" Grouping="Or">
-                    <ConditionSingle Enabled="true" ExpressionL="${var:resett}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    <ConditionSingle Enabled="true" ExpressionL="${evar:sbst}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    <ConditionSingle Enabled="false" ExpressionL="${var:material}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                  </ConditionGroup>
-                  <ConditionSingle Enabled="true" ExpressionL="${evar:acstatus}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="16" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="resett" VariableExpression="1" ActionType="Variable" Description="resett=1" DescriptionOverride="True">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionGroup Enabled="false" Grouping="And">
-                    <ConditionSingle Enabled="true" ExpressionL="${var:sbc}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    <ConditionGroup Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You successfully extract a" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="のマテリア精製をした！" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                    </ConditionGroup>
-                  </ConditionGroup>
-                  <ConditionSingle Enabled="true" ExpressionL="${par}" ExpressionTypeL="String" ExpressionR="reset" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="17" SoundRouting="None" TTSRouting="None" VariableName="resett" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You begin synthesizing" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は所持品から材料を取り出した。" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="18" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="sbet" VariableExpression="${func:padleft(48,2):${numeric:floor((${_systemtime}-${var:sbst})/60)}}:${func:padleft(48,2):${numeric:(${_systemtime}-${var:sbst})%60}}" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="false" ExpressionL="${evar:pressconfirm}" ExpressionTypeL="String" ExpressionR="0" ExpressionTypeR="String" ConditionType="NumericEqual" />
-                  <ConditionSingle Enabled="true" ExpressionL="${evar:sbst}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="19" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="sbet" VariableExpression="00:00" Enabled="False" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:resett}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="20" SoundRouting="None" TTSRouting="None" TextAuraAlignment="TopRight" TextAuraFontSize="8.25" TextAuraForeground="White" TextAuraOutline="#AB9152" TextAuraName="craftCountdev" TextAuraExpression="[${var:acstatus}][${var:pressconfirm}][MAT:${var:material} SPB:${var:sbc}] [${var:sbet}]" TextAuraXIniExpression="851" TextAuraYIniExpression="868" TextAuraWIniExpression="324" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraFontName="AxisLatinPro-Regular" Enabled="False" ActionType="TextAura">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="21" SoundRouting="None" TTSRouting="None" TextAuraAlignment="TopRight" TextAuraFontSize="9.75" TextAuraForeground="White" TextAuraOutline="#AB9152" TextAuraName="craftCount" TextAuraExpression="[MAT:${var:material} SPB:${var:sbc}] [${var:sbet}]" TextAuraXIniExpression="${_screenwidth}-257" TextAuraYIniExpression="54" TextAuraWIniExpression="200" TextAuraHIniExpression="100" TextAuraOIniExpression="100" TextAuraFontName="AxisLatinPro-Regular" Enabled="False" ActionType="TextAura">
-                <Condition Enabled="false" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${_ffxivplayer}" ExpressionTypeL="String" ExpressionR="Hikari Lonecat" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="22" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="repair" VariableExpression="1" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="0%" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Squadron Spiritbonding Manual" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="That Which Binds Us" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="カンパニーアクション：錬精度上昇量アップ" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="錬精度上昇量アップ" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${par}" ExpressionTypeL="String" ExpressionR="pause" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="23" SoundRouting="None" TTSRouting="None" VariableName="repair" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You begin synthesizing" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は所持品から材料を取り出した。" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="24" KeyPressExpression="{F14}" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="pressconfirm" VariableExpression="${_systemtimems}" ActionType="Variable" Description="Calls for pressconfirm" DescriptionOverride="True">
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionGroup Enabled="true" Grouping="Or">
-                    <ConditionSingle Enabled="false" ExpressionL="${reset}" ExpressionTypeL="String" ExpressionR="Your synthesis fails!" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                    <ConditionSingle Enabled="false" ExpressionL="${reset}" ExpressionTypeL="String" ExpressionR="は製作に失敗した……" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                    <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You synthesize" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                    <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="を完成させた！" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  </ConditionGroup>
-                  <ConditionSingle Enabled="true" ExpressionL="${var:sbc}" ExpressionTypeL="Numeric" ExpressionR="13" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                  <ConditionGroup Enabled="true" Grouping="Or">
-                    <ConditionSingle Enabled="true" ExpressionL="${var:material}" ExpressionTypeL="Numeric" ExpressionR="${var:matlimit}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                    <ConditionSingle Enabled="true" ExpressionL="${var:matlimit}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                  </ConditionGroup>
-                  <ConditionSingle Enabled="true" ExpressionL="${evar:repair}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="25" KeyPressExpression="{F14}" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="pressconfirm" VariableExpression="0">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionGroup Enabled="true" Grouping="And">
-                    <ConditionGroup Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${0}" ExpressionTypeL="String" ExpressionR="^12\||\|083C\||\|003C\|" ExpressionTypeR="String" ConditionType="RegexMatch" />
-                      <ConditionSingle Enabled="false" ExpressionL="${_systemtimems}-${var:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="4800" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                      <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Well Fed" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                      <ConditionSingle Enabled="false" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="0%" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="食事" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                    </ConditionGroup>
-                    <ConditionSingle Enabled="true" ExpressionL="${evar:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                  </ConditionGroup>
-                  <ConditionGroup Enabled="true" Grouping="And">
-                    <ConditionGroup Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Your synthesis fails!" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は製作に失敗した……" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You synthesize" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="を完成させた！" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                    </ConditionGroup>
-                    <ConditionSingle Enabled="true" ExpressionL="${var:material}" ExpressionTypeL="Numeric" ExpressionR="${var:matlimit}" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                  </ConditionGroup>
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="0%" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Squadron Spiritbonding Manual" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="That Which Binds Us" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="カンパニーアクション：錬精度上昇量アップ" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="錬精度上昇量アップ" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="26" KeyPressExpression="{F14}" SoundRouting="None" TTSRouting="None" VariableName="pressconfirm" VariableExpression="0" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You begin synthesizing" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${var:sbc}" ExpressionTypeL="Numeric" ExpressionR="12" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は所持品から材料を取り出した。" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${0}" ExpressionTypeL="String" ExpressionR="^12\||\|083C\||\|003C\|" ExpressionTypeR="String" ConditionType="RegexMatch" />
-                  <ConditionSingle Enabled="true" ExpressionL="${_systemtimems}-${var:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="4800" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="0%" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Well Fed" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="食事" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="false" ExpressionL="${var:sbc}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Medicated" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Squadron Spiritbonding Manual" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="That Which Binds Us" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="強化薬" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="カンパニーアクション：錬精度上昇量アップ" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="錬精度上昇量アップ" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="27" AuraName="cBase" AuraImage="https://raw.githubusercontent.com/gynryiie/assets/master/icons/progressBg.png" AuraXIniExpression="(${_screenwidth}-156)/2" AuraYIniExpression="floor(689/1080*${_screenheight}*27/26)" AuraWIniExpression="156" AuraHIniExpression="14" AuraOIniExpression="100" SoundRouting="None" TTSRouting="None" ActionType="Aura">
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${evar:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                  <ConditionSingle Enabled="true" ExpressionL="${var:dalamud}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="28" AuraName="cProgress1" AuraImage="https://raw.githubusercontent.com/gynryiie/assets/master/icons/progressF1.png" AuraXIniExpression="${_imageaura[cBase].x}" AuraYIniExpression="${_imageaura[cBase].y}" AuraWIniExpression="${_imageaura[cProgress1].w}" AuraHIniExpression="14" AuraOIniExpression="100" AuraWTickExpression="min(((${_systemtimems}-${var:pressconfirm})/1800)*152, 152)" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="casting" VariableExpression="1" ActionType="Aura">
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${evar:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                  <ConditionSingle Enabled="true" ExpressionL="${var:dalamud}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="29" AuraName="cProgress2" AuraImage="https://raw.githubusercontent.com/gynryiie/assets/master/icons/progressF2.png" AuraXIniExpression="${_imageaura[cBase].x}" AuraYIniExpression="${_imageaura[cBase].y}" AuraWIniExpression="${_imageaura[cProgress2].w}" AuraHIniExpression="14" AuraOIniExpression="100" AuraWTickExpression="(${_systemtimems}-${var:pressconfirm}-1800)/3000*152" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="casting" VariableExpression="1" ActionType="Aura">
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${_systemtimems}-${var:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="1800" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
-                  <ConditionSingle Enabled="true" ExpressionL="${var:dalamud}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="30" AuraOp="DeactivateAuraRegex" AuraName="cProgress|cBase" SoundRouting="None" TTSRouting="None" ActionType="Aura">
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${evar:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                  <ConditionSingle Enabled="true" ExpressionL="${var:dalamud}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="31" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="FINAL FANTASY XIV" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="synthesizeQueued" VariableExpression="0" ActionType="Variable" Description="Initialize Synthesize Queue Flag [ DALAMUD ]" DescriptionOverride="True">
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${_systemtimems}-${var:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="2500" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                  <ConditionSingle Enabled="true" ExpressionL="${var:dalamud}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                  <ConditionSingle Enabled="true" ExpressionL="${evar:synthesizeQueued}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="32" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: { &quot;command&quot;: &quot;/pcraft run loop 1 Synthesize&quot; } }" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="FINAL FANTASY XIV" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="NEW Click Synthesize [ DALAMUD ]" DescriptionOverride="True">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${evar:synthesizeQueued}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="33" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="FINAL FANTASY XIV" SoundRouting="None" TTSRouting="None" ActionType="KeyPress">
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${_systemtimems}-${var:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="1800" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                  <ConditionSingle Enabled="true" ExpressionL="${var:dalamud}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="34" SoundRouting="None" TTSRouting="None" TriggerId="5786cb19-de10-4ef4-b9e8-ed84bf4e2c42" TriggerForce="regexp" ActionType="Trigger">
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${evar:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                  <ConditionSingle Enabled="true" ExpressionL="${evar:synthesizeQueued}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="35" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="FINAL FANTASY XIV" SoundRouting="None" TTSRouting="None" VariableName="synthesizeQueued" ActionType="Variable" Description="Unset synthesizeQueued  [ DALAMUD ]" DescriptionOverride="True">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${evar:synthesizeQueued}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You begin synthesizing" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は所持品から材料を取り出した。" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="36" MutexName="sbm" SoundRouting="None" TTSRouting="None" ActionType="Mutex">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-            </Actions>
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${evar:acstatus}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Trigger>
-        </Triggers>
-      </Folder>
-    </Folders>
+  <ExportedFolder FFXIVJobFilter="32640" Id="81b2977f-5915-4ea5-bec6-0db8aa8ed3f0" Name="Auto Crafter v2.4.3" Enabled="true">
+    <Folders />
     <Triggers>
-      <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="Auto Craft Toggle" Id="7c410156-7208-428e-b502-cd1ad4b57bb9" RegularExpression="^00\|\d*\|0038\|\|(?:ac|autocraft)(?: (on|off))?$">
+      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Auto Craft Toggle" Id="6748436f-717b-4235-b0c7-2b6de62cdaa4" RegularExpression="^00\|.*\|0038\|\|(?:(?&lt;autocraft&gt;ac|autocraft)(?: (on|off))?\||(?&lt;dalamud&gt;where plogon))">
         <Actions>
-          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="acstatus" VariableExpression="max(${var:acstatus}≠1, ${func:length:${1}}-1)%2" ActionType="Variable">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TriggerOp="EnableTrigger" TriggerId="359e3db5-6cb5-466c-bbc1-55e16d71a16b" ActionType="Trigger">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${var:acstatus}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TriggerOp="DisableTrigger" TriggerId="359e3db5-6cb5-466c-bbc1-55e16d71a16b" ActionType="Trigger">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${var:acstatus}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="material" VariableExpression="0" ActionType="Variable">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${evar:material}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="sbc" VariableExpression="0" ActionType="Variable">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${evar:sbc}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="matlimit" VariableExpression="0" Enabled="False" ActionType="Variable">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${evar:matlimit}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" TextAuraAlignment="TopRight" TextAuraFontSize="9.75" TextAuraForeground="White" TextAuraOutline="#AB9152" TextAuraName="acAura" TextAuraExpression="[MAT:${var:material}${func:padleft(47,${numeric:or(${var:matlimit})}):}${var:matlimit}] [SPB:${var:sbc}] [${var:sbet}]" TextAuraXIniExpression="${_screenwidth}-257" TextAuraYIniExpression="54" TextAuraWIniExpression="200" TextAuraHIniExpression="100" TextAuraOIniExpression="100" TextAuraFontName="AxisLatinPro-Regular" ActionType="TextAura">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${var:acstatus}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" TextAuraAlignment="TopRight" TextAuraFontSize="8.25" TextAuraForeground="White" TextAuraOutline="#AB9152" TextAuraName="acAuradev" TextAuraExpression="[${var:acstatus}][${var:pressconfirm}][MAT:${var:material} SPB:${var:sbc}] [${var:sbet}]" TextAuraXIniExpression="851" TextAuraYIniExpression="868" TextAuraWIniExpression="324" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraFontName="AxisLatinPro-Regular" Enabled="False" ActionType="TextAura">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${var:acstatus}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="8.25" TextAuraName="acAura" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${var:acstatus}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="10" SoundRouting="None" TTSRouting="None">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-        </Actions>
-        <Condition Enabled="false" Grouping="Or" />
-      </Trigger>
-      <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="Auto Crafter" Id="359e3db5-6cb5-466c-bbc1-55e16d71a16b" RegularExpression="^12\||\|0(?:038\|\|(?:Macro #(?&lt;macro&gt;\d) finished|(?:ac|autocraft) (?:(?&lt;par&gt;reset|pause)|(?:limit )?(?&lt;limit&gt;\d+)|set (?&lt;material&gt;\d+)))|03c\||8(?:3c\||b0\|\|(?:You lose the effect of ..(?&lt;regex&gt;Well Fed)|.*「(?&lt;regex&gt;食事)」が切れた。)|42\|\|(?:.+(?&lt;regex&gt;は所持品から材料を取り出した。|は製作に失敗した……|のマテリア精製をした！)|(?&lt;regex&gt;You begin synthesizing|Your synthesis fails!|You successfully extract a))|39\|\|(?:.+(?&lt;regex&gt;錬精度が)|(?&lt;regex&gt;Your spiritbond with the)|The condition of your.+ (?&lt;regex&gt;0%)|.*の耐久度が(?&lt;regex&gt;0%)になった。)|c2\|\|(?:.+(?&lt;regex&gt;を完成させた！)|(?&lt;regex&gt;You synthesize))))" Description="Auto-spiritbond crafter gear, Supported language (EN_JP)">
-        <Actions>
-          <Action OrderNumber="1" MutexOpType="Acquire" MutexName="sbm" SoundRouting="None" TTSRouting="None" ActionType="Mutex">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TriggerOp="DisableTrigger" TriggerId="359e3db5-6cb5-466c-bbc1-55e16d71a16b" ActionType="Trigger">
+          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="acstatus" VariableExpression="0" ActionType="Variable">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${evar:acstatus}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Action>
-          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="sbc" VariableExpression="${var:sbc}+1" ActionType="Variable" Description="sbc+1" DescriptionOverride="True">
+          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="acstatus" VariableExpression="max(${var:acstatus}≠1, ${func:length:${1}}-1)%2" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${func:length:${autocraft}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TriggerOp="EnableTrigger" TriggerId="5786cb19-de10-4ef4-b9e8-ed84bf4e2c42" ActionType="Trigger">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:acstatus}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" TriggerOp="DisableTrigger" TriggerId="5786cb19-de10-4ef4-b9e8-ed84bf4e2c42" ActionType="Trigger">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:acstatus}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="material" VariableExpression="0" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:material}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="sbet" VariableExpression="00:00" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:sbet}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="macroType" VariableExpression="keybind" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:macroType}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="macroID" VariableExpression="1" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:macroID}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="sbc" VariableExpression="0" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:sbc}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="10" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="matlimit" VariableExpression="0" Enabled="False" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:matlimit}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="11" SoundRouting="None" TTSRouting="None" TextAuraAlignment="TopRight" TextAuraFontSize="9.75" TextAuraForeground="White" TextAuraOutline="#AB9152" TextAuraName="acAura" TextAuraExpression="[MAT:${var:material}${func:padleft(47,${numeric:or(${var:matlimit})}):}${var:matlimit}] [SB:${var:sbc}] [${var:sbet}][${func:toupper:${var:macroType}}: ${var:macroID}]" TextAuraXIniExpression="${_screenwidth}/2" TextAuraYIniExpression="56" TextAuraWIniExpression="${_screenwidth}-54-${_screenwidth}/2" TextAuraHIniExpression="100" TextAuraOIniExpression="100" TextAuraFontName="AxisLatinPro-Regular" ActionType="TextAura">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:acstatus}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="12" SoundRouting="None" TTSRouting="None" TextAuraAlignment="TopRight" TextAuraFontSize="8.25" TextAuraForeground="White" TextAuraOutline="#AB9152" TextAuraName="acAuradev" TextAuraExpression="[${var:acstatus}][${var:pressconfirm}][MAT:${var:material} SPB:${var:sbc}] [${var:sbet}]" TextAuraXIniExpression="851" TextAuraYIniExpression="868" TextAuraWIniExpression="324" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraFontName="AxisLatinPro-Regular" Enabled="False" ActionType="TextAura">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:acstatus}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="13" SoundRouting="None" TTSRouting="None" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="8.25" TextAuraName="acAura" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:acstatus}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="14" SoundRouting="None" TTSRouting="None">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="15" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: { &quot;command&quot;: &quot;/pcraft run loop 1 CheckPlugins&quot; } }" SoundRouting="None" TTSRouting="None" Enabled="False" ActionType="GenericJson" DebugLevel="None">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:dalamud}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="16" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="dalamud" VariableExpression="0" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:dalamud}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="17" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="dalamud" VariableExpression="1" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${dalamud}" ExpressionTypeL="String" ExpressionR="where plogon" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+            </Condition>
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Auto Crafter" Id="5786cb19-de10-4ef4-b9e8-ed84bf4e2c42" RegularExpression="^12\||\|0(?:038\|\|(?:Macro #(?&lt;macro&gt;\d) finished|(?:ac|autocraft) (?:(?&lt;par&gt;reset|pause)|(?:limit )?(?&lt;limit&gt;\d+)|set (?&lt;material&gt;\d+)|macro (?:(?&lt;macroType&gt;individual) (?&lt;macroID&gt;[1-9]?\d)|(?&lt;macroType&gt;shared) (?&lt;macroID&gt;[1-9]?\d)|(?&lt;macroType&gt;snd) (?&lt;macroID&gt;.*)|(?&lt;macroType&gt;keybind) (?&lt;macroID&gt;[1-9]))$))|03C\||8(?:3C\||B0\|\|(?:You lose the effect of ..(?&lt;regex&gt;Well Fed|Medicated|Squadron Spiritbonding Manual|That Which Binds Us)\.|.*「(?&lt;regex&gt;カンパニーアクション：錬精度上昇量アップ|強化薬|錬精度上昇量アップ|食事)」が切れた。)|42\|\|(?:.+(?&lt;regex&gt;は所持品から材料を取り出した。|は製作に失敗した……|のマテリア精製をした！)|(?&lt;regex&gt;You begin synthesizing|Your synthesis fails!|You successfully extract a))|39\|\|(?:.+(?&lt;regex&gt;錬精度が)|(?&lt;regex&gt;Your spiritbond with the)|The condition of your.+ (?&lt;regex&gt;0%)|.*の耐久度が(?&lt;regex&gt;0%)になった。)|C2\|\|(?:.+(?&lt;regex&gt;を完成させた！)|(?&lt;regex&gt;You synthesize))))" Description="Auto-spiritbond crafter gear, Supported language (EN_JP)">
+        <Actions>
+          <Action OrderNumber="1" MutexOpType="Acquire" MutexName="sbm" SoundRouting="None" TTSRouting="None" ActionType="Mutex">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TriggerOp="DisableTrigger" TriggerId="5786cb19-de10-4ef4-b9e8-ed84bf4e2c42" ActionType="Trigger">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:acstatus}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="sbc" VariableExpression="${var:sbc}+1" ActionType="Variable" Description="Spiritbond count (sbc) + 1" DescriptionOverride="True">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Your spiritbond with the" ExpressionTypeR="String" ConditionType="StringEqualCase" />
               <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="錬精度が" ExpressionTypeR="String" ConditionType="StringEqualCase" />
@@ -562,7 +136,17 @@
               <ConditionSingle Enabled="true" ExpressionL="${par}" ExpressionTypeL="String" ExpressionR="reset" ExpressionTypeR="String" ConditionType="StringEqualCase" />
             </Condition>
           </Action>
-          <Action OrderNumber="7" SystemBeepFreqExpression="500" KeypressType="WindowMessage" KeyPressExpression="1" KeyPressCode="49+(${macro})" KeyPressWindow="FINAL FANTASY XIV" SoundRouting="None" TTSRouting="None" ActionType="KeyPress" Description="Presses 1" DescriptionOverride="True">
+          <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="macroType" VariableExpression="${macroType}" ActionType="Variable" Description="macroType = ${macroType}" DescriptionOverride="True">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${func:length:${macroType}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="macroID" VariableExpression="${macroID}" ActionType="Variable" Description="macroID = ${macroID}" DescriptionOverride="True">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${func:length:${macroID}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="9" SystemBeepFreqExpression="500" KeypressType="WindowMessage" KeyPressExpression="1" KeyPressCode="49+${numeric:if(${func:length:${macro}},(${macro}),${var:macroID}-1)}" KeyPressWindow="FINAL FANTASY XIV" SoundRouting="None" TTSRouting="None" ActionType="KeyPress" Description="Execute Macro [ keybind ]" DescriptionOverride="True">
             <Condition Enabled="true" Grouping="And">
               <ConditionGroup Enabled="true" Grouping="Or">
                 <ConditionSingle Enabled="true" ExpressionL="(${macro})" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
@@ -574,9 +158,28 @@
                 <ConditionSingle Enabled="true" ExpressionL="${var:material}" ExpressionTypeL="Numeric" ExpressionR="${var:matlimit}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                 <ConditionSingle Enabled="true" ExpressionL="${var:matlimit}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
               </ConditionGroup>
+              <ConditionSingle Enabled="true" ExpressionL="${var:macroType}" ExpressionTypeL="String" ExpressionR="keybind" ExpressionTypeR="String" ConditionType="StringEqualCase" />
             </Condition>
           </Action>
-          <Action OrderNumber="8" SystemBeepFreqExpression="500" KeypressType="WindowMessage" KeyPressExpression="1" KeyPressCode="49+(${macro})" KeyPressWindow="FINAL FANTASY XIV" SoundRouting="None" TTSRouting="None" Enabled="False" Description="Presses 1" DescriptionOverride="True">
+          <Action OrderNumber="10" SystemBeepFreqExpression="500" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: { &quot;command&quot;: &quot;/runmacro ${var:macroID} ${var:macroType}&quot; } }" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Execute Macro [ shared/individual ] [ DALAMUD ]" DescriptionOverride="True">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionGroup Enabled="true" Grouping="Or">
+                <ConditionSingle Enabled="false" ExpressionL="(${macro})" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You begin synthesizing" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は所持品から材料を取り出した。" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              </ConditionGroup>
+              <ConditionSingle Enabled="true" ExpressionL="${evar:acstatus}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionGroup Enabled="true" Grouping="Or">
+                <ConditionSingle Enabled="true" ExpressionL="${var:material}" ExpressionTypeL="Numeric" ExpressionR="${var:matlimit}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                <ConditionSingle Enabled="true" ExpressionL="${var:matlimit}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              </ConditionGroup>
+              <ConditionGroup Enabled="true" Grouping="Or">
+                <ConditionSingle Enabled="true" ExpressionL="${var:macroType}" ExpressionTypeL="String" ExpressionR="shared" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                <ConditionSingle Enabled="true" ExpressionL="${var:macroType}" ExpressionTypeL="String" ExpressionR="individual" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              </ConditionGroup>
+            </Condition>
+          </Action>
+          <Action OrderNumber="11" SystemBeepFreqExpression="500" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: { &quot;command&quot;: &quot;/pcraft run loop 1 ${var:macroID}&quot; } }" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Execute Macro [ snd ] [ DALAMUD ]" DescriptionOverride="True">
             <Condition Enabled="true" Grouping="And">
               <ConditionGroup Enabled="true" Grouping="Or">
                 <ConditionSingle Enabled="true" ExpressionL="(${macro})" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
@@ -588,24 +191,25 @@
                 <ConditionSingle Enabled="true" ExpressionL="${var:material}" ExpressionTypeL="Numeric" ExpressionR="${var:matlimit}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                 <ConditionSingle Enabled="true" ExpressionL="${var:matlimit}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
               </ConditionGroup>
+              <ConditionSingle Enabled="true" ExpressionL="${var:macroType}" ExpressionTypeL="String" ExpressionR="snd" ExpressionTypeR="String" ConditionType="StringEqualCase" />
             </Condition>
           </Action>
-          <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="material" VariableExpression="${material}" ActionType="Variable">
+          <Action OrderNumber="12" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="material" VariableExpression="${material}" ActionType="Variable">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${func:length:${material}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
             </Condition>
           </Action>
-          <Action OrderNumber="10" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="matlimit" VariableExpression="${limit}" ActionType="Variable">
+          <Action OrderNumber="13" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="matlimit" VariableExpression="${limit}" ActionType="Variable">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${limit}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
             </Condition>
           </Action>
-          <Action OrderNumber="11" SoundRouting="None" TTSRouting="None" VariableName="matlimit" ActionType="Variable">
+          <Action OrderNumber="14" SoundRouting="None" TTSRouting="None" VariableName="matlimit" ActionType="Variable">
             <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${limit}" ExpressionTypeL="String" ExpressionR="0" ExpressionTypeR="String" ConditionType="StringEqualCase" />
             </Condition>
           </Action>
-          <Action OrderNumber="12" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="sbst" VariableExpression="${_systemtime}" ActionType="Variable" Description="sbst=_systemtime" DescriptionOverride="True">
+          <Action OrderNumber="15" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="sbst" VariableExpression="${_systemtime}" ActionType="Variable" Description="sbst=_systemtime" DescriptionOverride="True">
             <Condition Enabled="true" Grouping="And">
               <ConditionGroup Enabled="true" Grouping="Or">
                 <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You begin synthesizing" ExpressionTypeR="String" ConditionType="StringEqualCase" />
@@ -619,7 +223,7 @@
               <ConditionSingle Enabled="true" ExpressionL="${evar:acstatus}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Action>
-          <Action OrderNumber="13" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="resett" VariableExpression="1" ActionType="Variable" Description="resett=1" DescriptionOverride="True">
+          <Action OrderNumber="16" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="resett" VariableExpression="1" ActionType="Variable" Description="resett=1" DescriptionOverride="True">
             <Condition Enabled="true" Grouping="Or">
               <ConditionGroup Enabled="false" Grouping="And">
                 <ConditionSingle Enabled="true" ExpressionL="${var:sbc}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -631,41 +235,48 @@
               <ConditionSingle Enabled="true" ExpressionL="${par}" ExpressionTypeL="String" ExpressionR="reset" ExpressionTypeR="String" ConditionType="StringEqualCase" />
             </Condition>
           </Action>
-          <Action OrderNumber="14" SoundRouting="None" TTSRouting="None" VariableName="resett" ActionType="Variable">
+          <Action OrderNumber="17" SoundRouting="None" TTSRouting="None" VariableName="resett" ActionType="Variable">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You begin synthesizing" ExpressionTypeR="String" ConditionType="StringEqualCase" />
               <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は所持品から材料を取り出した。" ExpressionTypeR="String" ConditionType="StringEqualCase" />
             </Condition>
           </Action>
-          <Action OrderNumber="15" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="sbet" VariableExpression="${func:padleft(48,2):${numeric:floor((${_systemtime}-${var:sbst})/60)}}:${func:padleft(48,2):${numeric:(${_systemtime}-${var:sbst})%60}}" ActionType="Variable">
-            <Condition Enabled="false" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${evar:pressconfirm}" ExpressionTypeL="String" ExpressionR="0" ExpressionTypeR="String" ConditionType="NumericEqual" />
+          <Action OrderNumber="18" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="sbet" VariableExpression="${func:padleft(48,2):${numeric:floor((${_systemtime}-${var:sbst})/60)}}:${func:padleft(48,2):${numeric:(${_systemtime}-${var:sbst})%60}}" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="false" ExpressionL="${evar:pressconfirm}" ExpressionTypeL="String" ExpressionR="0" ExpressionTypeR="String" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${evar:sbst}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Action>
-          <Action OrderNumber="16" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="sbet" VariableExpression="00:00" Enabled="False" ActionType="Variable">
+          <Action OrderNumber="19" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="sbet" VariableExpression="00:00" Enabled="False" ActionType="Variable">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${var:resett}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Action>
-          <Action OrderNumber="17" SoundRouting="None" TTSRouting="None" TextAuraAlignment="TopRight" TextAuraFontSize="8.25" TextAuraForeground="White" TextAuraOutline="#AB9152" TextAuraName="craftCountdev" TextAuraExpression="[${var:acstatus}][${var:pressconfirm}][MAT:${var:material} SPB:${var:sbc}] [${var:sbet}]" TextAuraXIniExpression="851" TextAuraYIniExpression="868" TextAuraWIniExpression="324" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraFontName="AxisLatinPro-Regular" Enabled="False" ActionType="TextAura">
+          <Action OrderNumber="20" SoundRouting="None" TTSRouting="None" TextAuraAlignment="TopRight" TextAuraFontSize="8.25" TextAuraForeground="White" TextAuraOutline="#AB9152" TextAuraName="craftCountdev" TextAuraExpression="[${var:acstatus}][${var:pressconfirm}][MAT:${var:material} SPB:${var:sbc}] [${var:sbet}]" TextAuraXIniExpression="851" TextAuraYIniExpression="868" TextAuraWIniExpression="324" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraFontName="AxisLatinPro-Regular" Enabled="False" ActionType="TextAura">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="18" SoundRouting="None" TTSRouting="None" TextAuraAlignment="TopRight" TextAuraFontSize="9.75" TextAuraForeground="White" TextAuraOutline="#AB9152" TextAuraName="craftCount" TextAuraExpression="[MAT:${var:material} SPB:${var:sbc}] [${var:sbet}]" TextAuraXIniExpression="${_screenwidth}-257" TextAuraYIniExpression="54" TextAuraWIniExpression="200" TextAuraHIniExpression="100" TextAuraOIniExpression="100" TextAuraFontName="AxisLatinPro-Regular" Enabled="False" ActionType="TextAura">
+          <Action OrderNumber="21" SoundRouting="None" TTSRouting="None" TextAuraAlignment="TopRight" TextAuraFontSize="9.75" TextAuraForeground="White" TextAuraOutline="#AB9152" TextAuraName="craftCount" TextAuraExpression="[MAT:${var:material} SPB:${var:sbc}] [${var:sbet}]" TextAuraXIniExpression="${_screenwidth}-257" TextAuraYIniExpression="54" TextAuraWIniExpression="200" TextAuraHIniExpression="100" TextAuraOIniExpression="100" TextAuraFontName="AxisLatinPro-Regular" Enabled="False" ActionType="TextAura">
             <Condition Enabled="false" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivplayer}" ExpressionTypeL="String" ExpressionR="Hikari Lonecat" ExpressionTypeR="String" ConditionType="StringEqualCase" />
             </Condition>
           </Action>
-          <Action OrderNumber="19" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="repair" VariableExpression="1" ActionType="Variable">
+          <Action OrderNumber="22" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="repair" VariableExpression="1" ActionType="Variable">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="0%" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Squadron Spiritbonding Manual" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="That Which Binds Us" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="カンパニーアクション：錬精度上昇量アップ" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="錬精度上昇量アップ" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${par}" ExpressionTypeL="String" ExpressionR="pause" ExpressionTypeR="String" ConditionType="StringEqualCase" />
             </Condition>
           </Action>
-          <Action OrderNumber="20" SoundRouting="None" TTSRouting="None" VariableName="repair" ActionType="Variable">
+          <Action OrderNumber="23" SoundRouting="None" TTSRouting="None" VariableName="repair" ActionType="Variable">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You begin synthesizing" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は所持品から材料を取り出した。" ExpressionTypeR="String" ConditionType="StringEqualCase" />
             </Condition>
           </Action>
-          <Action OrderNumber="21" KeyPressExpression="{F14}" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="pressconfirm" VariableExpression="${_systemtimems}" ActionType="Variable" Description="Calls for pressconfirm" DescriptionOverride="True">
+          <Action OrderNumber="24" KeyPressExpression="{F14}" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="pressconfirm" VariableExpression="${_systemtimems}" ActionType="Variable" Description="Calls for pressconfirm" DescriptionOverride="True">
             <Condition Enabled="true" Grouping="And">
               <ConditionGroup Enabled="true" Grouping="Or">
                 <ConditionSingle Enabled="false" ExpressionL="${reset}" ExpressionTypeL="String" ExpressionR="Your synthesis fails!" ExpressionTypeR="String" ConditionType="StringEqualCase" />
@@ -681,14 +292,14 @@
               <ConditionSingle Enabled="true" ExpressionL="${evar:repair}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Action>
-          <Action OrderNumber="22" KeyPressExpression="{F14}" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="pressconfirm" VariableExpression="0">
+          <Action OrderNumber="25" KeyPressExpression="{F14}" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="pressconfirm" VariableExpression="0">
             <Condition Enabled="true" Grouping="Or">
               <ConditionGroup Enabled="true" Grouping="And">
                 <ConditionGroup Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${0}" ExpressionTypeL="String" ExpressionR="^12\||\|083c\||\|003c\|" ExpressionTypeR="String" ConditionType="RegexMatch" />
-                  <ConditionSingle Enabled="true" ExpressionL="${_systemtimems}-${var:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="4800" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  <ConditionSingle Enabled="true" ExpressionL="${0}" ExpressionTypeL="String" ExpressionR="^12\||\|083C\||\|003C\|" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                  <ConditionSingle Enabled="false" ExpressionL="${_systemtimems}-${var:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="4800" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                   <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Well Fed" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="0%" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                  <ConditionSingle Enabled="false" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="0%" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                   <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="食事" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                 </ConditionGroup>
                 <ConditionSingle Enabled="true" ExpressionL="${evar:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -702,568 +313,94 @@
                 </ConditionGroup>
                 <ConditionSingle Enabled="true" ExpressionL="${var:material}" ExpressionTypeL="Numeric" ExpressionR="${var:matlimit}" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
               </ConditionGroup>
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="0%" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Squadron Spiritbonding Manual" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="That Which Binds Us" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="カンパニーアクション：錬精度上昇量アップ" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="錬精度上昇量アップ" ExpressionTypeR="String" ConditionType="StringEqualCase" />
             </Condition>
           </Action>
-          <Action OrderNumber="23" KeyPressExpression="{F14}" SoundRouting="None" TTSRouting="None" VariableName="pressconfirm" VariableExpression="0" ActionType="Variable">
+          <Action OrderNumber="26" KeyPressExpression="{F14}" SoundRouting="None" TTSRouting="None" VariableName="pressconfirm" VariableExpression="0" ActionType="Variable">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You begin synthesizing" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-              <ConditionSingle Enabled="false" ExpressionL="${var:sbc}" ExpressionTypeL="Numeric" ExpressionR="13" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:sbc}" ExpressionTypeL="Numeric" ExpressionR="12" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
               <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は所持品から材料を取り出した。" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-              <ConditionSingle Enabled="true" ExpressionL="${0}" ExpressionTypeL="String" ExpressionR="^12\||\|083c\||\|003c\|" ExpressionTypeR="String" ConditionType="RegexMatch" />
+              <ConditionSingle Enabled="true" ExpressionL="${0}" ExpressionTypeL="String" ExpressionR="^12\||\|083C\||\|003C\|" ExpressionTypeR="String" ConditionType="RegexMatch" />
               <ConditionSingle Enabled="true" ExpressionL="${_systemtimems}-${var:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="4800" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
               <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="0%" ExpressionTypeR="String" ConditionType="StringEqualCase" />
               <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Well Fed" ExpressionTypeR="String" ConditionType="StringEqualCase" />
               <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="食事" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="false" ExpressionL="${var:sbc}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Medicated" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="Squadron Spiritbonding Manual" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="That Which Binds Us" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="強化薬" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="カンパニーアクション：錬精度上昇量アップ" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="錬精度上昇量アップ" ExpressionTypeR="String" ConditionType="StringEqualCase" />
             </Condition>
           </Action>
-          <Action OrderNumber="24" AuraName="cBase" AuraImage="https://raw.githubusercontent.com/gynryiie/assets/master/icons/progressBg.png" AuraXIniExpression="(${_screenwidth}-156)/2" AuraYIniExpression="floor(689/1080*${_screenheight}*27/26)" AuraWIniExpression="156" AuraHIniExpression="14" AuraOIniExpression="100" SoundRouting="None" TTSRouting="None" ActionType="Aura">
-            <Condition Enabled="true" Grouping="Or">
+          <Action OrderNumber="27" AuraName="cBase" AuraImage="https://raw.githubusercontent.com/gynryiie/assets/master/icons/progressBg.png" AuraXIniExpression="(${_screenwidth}-156)/2" AuraYIniExpression="floor(689/1080*${_screenheight}*27/26)" AuraWIniExpression="156" AuraHIniExpression="14" AuraOIniExpression="100" SoundRouting="None" TTSRouting="None" ActionType="Aura">
+            <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${evar:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:dalamud}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Action>
-          <Action OrderNumber="25" AuraName="cProgress1" AuraImage="https://raw.githubusercontent.com/gynryiie/assets/master/icons/progressF1.png" AuraXIniExpression="${_imageaura[cBase].x}" AuraYIniExpression="${_imageaura[cBase].y}" AuraWIniExpression="${_imageaura[cProgress1].w}" AuraHIniExpression="14" AuraOIniExpression="100" AuraWTickExpression="min(((${_systemtimems}-${var:pressconfirm})/1800)*152, 152)" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="casting" VariableExpression="1" ActionType="Aura">
-            <Condition Enabled="true" Grouping="Or">
+          <Action OrderNumber="28" AuraName="cProgress1" AuraImage="https://raw.githubusercontent.com/gynryiie/assets/master/icons/progressF1.png" AuraXIniExpression="${_imageaura[cBase].x}" AuraYIniExpression="${_imageaura[cBase].y}" AuraWIniExpression="${_imageaura[cProgress1].w}" AuraHIniExpression="14" AuraOIniExpression="100" AuraWTickExpression="min(((${_systemtimems}-${var:pressconfirm})/1800)*152, 152)" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="casting" VariableExpression="1" ActionType="Aura">
+            <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${evar:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:dalamud}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Action>
-          <Action OrderNumber="26" AuraName="cProgress2" AuraImage="https://raw.githubusercontent.com/gynryiie/assets/master/icons/progressF2.png" AuraXIniExpression="${_imageaura[cBase].x}" AuraYIniExpression="${_imageaura[cBase].y}" AuraWIniExpression="${_imageaura[cProgress2].w}" AuraHIniExpression="14" AuraOIniExpression="100" AuraWTickExpression="(${_systemtimems}-${var:pressconfirm}-1800)/3000*152" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="casting" VariableExpression="1" ActionType="Aura">
-            <Condition Enabled="true" Grouping="Or">
+          <Action OrderNumber="29" AuraName="cProgress2" AuraImage="https://raw.githubusercontent.com/gynryiie/assets/master/icons/progressF2.png" AuraXIniExpression="${_imageaura[cBase].x}" AuraYIniExpression="${_imageaura[cBase].y}" AuraWIniExpression="${_imageaura[cProgress2].w}" AuraHIniExpression="14" AuraOIniExpression="100" AuraWTickExpression="(${_systemtimems}-${var:pressconfirm}-1800)/3000*152" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="casting" VariableExpression="1" ActionType="Aura">
+            <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${_systemtimems}-${var:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="1800" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:dalamud}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Action>
-          <Action OrderNumber="27" AuraOp="DeactivateAuraRegex" AuraName="cProgress|cBase" SoundRouting="None" TTSRouting="None" ActionType="Aura">
-            <Condition Enabled="true" Grouping="Or">
+          <Action OrderNumber="30" AuraOp="DeactivateAuraRegex" AuraName="cProgress|cBase" SoundRouting="None" TTSRouting="None" ActionType="Aura">
+            <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${evar:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:dalamud}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Action>
-          <Action OrderNumber="28" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="FINAL FANTASY XIV" SoundRouting="None" TTSRouting="None" ActionType="KeyPress">
+          <Action OrderNumber="31" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="FINAL FANTASY XIV" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="synthesizeQueued" VariableExpression="0" ActionType="Variable" Description="Initialize Synthesize Queue Flag [ DALAMUD ]" DescriptionOverride="True">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${_systemtimems}-${var:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="2500" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:dalamud}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${evar:synthesizeQueued}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="32" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: { &quot;command&quot;: &quot;/pcraft run loop 1 Synthesize&quot; } }" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="FINAL FANTASY XIV" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="NEW Click Synthesize [ DALAMUD ]" DescriptionOverride="True">
             <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:synthesizeQueued}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="33" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="FINAL FANTASY XIV" SoundRouting="None" TTSRouting="None" ActionType="KeyPress">
+            <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${_systemtimems}-${var:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="1800" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:dalamud}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Action>
-          <Action OrderNumber="29" SoundRouting="None" TTSRouting="None" TriggerId="359e3db5-6cb5-466c-bbc1-55e16d71a16b" TriggerForce="regexp" ActionType="Trigger">
-            <Condition Enabled="true" Grouping="Or">
+          <Action OrderNumber="34" SoundRouting="None" TTSRouting="None" TriggerId="5786cb19-de10-4ef4-b9e8-ed84bf4e2c42" TriggerForce="regexp" ActionType="Trigger">
+            <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${evar:pressconfirm}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${evar:synthesizeQueued}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Action>
-          <Action OrderNumber="30" MutexName="sbm" SoundRouting="None" TTSRouting="None" ActionType="Mutex">
+          <Action OrderNumber="35" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="FINAL FANTASY XIV" SoundRouting="None" TTSRouting="None" VariableName="synthesizeQueued" ActionType="Variable" Description="Unset synthesizeQueued  [ DALAMUD ]" DescriptionOverride="True">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:synthesizeQueued}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="You begin synthesizing" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${regex}" ExpressionTypeL="String" ExpressionR="は所持品から材料を取り出した。" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="36" MutexName="sbm" SoundRouting="None" TTSRouting="None" ActionType="Mutex">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
         </Actions>
         <Condition Enabled="true" Grouping="Or">
           <ConditionSingle Enabled="true" ExpressionL="${evar:acstatus}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
         </Condition>
-      </Trigger>
-      <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="Auto Fisher" Id="8f7c0c58-bb97-4038-9552-9df4eb1e1c9b" RegularExpression="(?&lt;x&gt;You land a|You lose your bait\.\.\.|The fish gets away\.\.\.|You release)|(?&lt;y&gt;You gain the effect of Gathering Fortune Up\.)|(?&lt;z&gt;You lose the effect of Catch and Release\.)">
-        <Actions>
-          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="isPatienceUp" VariableExpression="1" ActionType="Variable">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${func:length:${y}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="isPatienceUp" ActionType="Variable">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${func:length:${z}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="50" KeyPressWindow="Final Fantasy XIV" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="FisherWait" VariableExpression="5000" Enabled="False" ActionType="Variable" Description="Send keycode (50) &quot;2&quot; to window (Final Fantasy XIV)">
-            <Condition Enabled="true" Grouping="And">
-              <ConditionSingle Enabled="true" ExpressionL="${evar:isPatienceUp}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-              <ConditionSingle Enabled="true" ExpressionL="${func:length:${x}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="50" KeyPressWindow="Final Fantasy XIV" SoundRouting="None" TTSRouting="None" ActionType="KeyPress" ExecutionDelayExpression="400" Description="Send keycode (50) &quot;2&quot; to window (Final Fantasy XIV)" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="And">
-              <ConditionSingle Enabled="true" ExpressionL="${evar:isPatienceUp}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-              <ConditionSingle Enabled="true" ExpressionL="${func:length:${x}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="49" KeyPressWindow="Final Fantasy XIV" SoundRouting="None" TTSRouting="None" ActionType="KeyPress" Description="Send keycode (49) &quot;1&quot; to window (Final Fantasy XIV)" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="And">
-              <ConditionGroup Enabled="true" Grouping="Or">
-                <ConditionSingle Enabled="true" ExpressionL="${func:length:${x}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                <ConditionSingle Enabled="true" ExpressionL="${func:length:${y}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-              </ConditionGroup>
-              <ConditionSingle Enabled="true" ExpressionL="${evar:isPatienceUp}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="6" KeypressType="WindowMessage" KeyPressCode="49" KeyPressWindow="Final Fantasy XIV" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="FshStart" VariableExpression="${_systemtimems}" ActionType="Variable">
-            <Condition Enabled="true" Grouping="And">
-              <ConditionGroup Enabled="true" Grouping="Or">
-                <ConditionSingle Enabled="true" ExpressionL="${func:length:${x}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                <ConditionSingle Enabled="true" ExpressionL="${func:length:${y}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-              </ConditionGroup>
-              <ConditionSingle Enabled="true" ExpressionL="${evar:isPatienceUp}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="7" KeypressType="WindowMessage" KeyPressCode="50" KeyPressWindow="Final Fantasy XIV" SoundRouting="None" TTSRouting="None" VariableName="FisherWait" Enabled="False" ActionType="Variable" Description="Send keycode (50) &quot;2&quot; to window (Final Fantasy XIV)">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" TextAuraAlignment="TopLeft" TextAuraFontSize="9.75" TextAuraForeground="White" TextAuraOutline="#AB9152" TextAuraExpression="${func:format(System.Double,&quot;0.0&quot;):${numeric:round((${_systemtimems}-${var:FshStart})/1000, 1)}}" TextAuraXIniExpression="16" TextAuraYIniExpression="432" TextAuraWIniExpression="147" TextAuraHIniExpression="33" TextAuraOIniExpression="100" TextAuraFontName="AxisLatinPro-Regular" Enabled="False" ActionType="TextAura">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-        </Actions>
-        <Condition Enabled="false" Grouping="Or" />
-      </Trigger>
-      <Trigger Enabled="false" Sequential="True" Name="OCR Buffer" Id="ab41a353-46f6-4da2-b7e7-0ed9ed1fa5a4" RegularExpression="^.{15}00:0038:ocr (?:(?&lt;param&gt;find|click) (?&lt;search_string&gt;.+?)(?= rect| pt|$) ?(?:(?:(?&lt;ob&gt;rect) (?&lt;rcx&gt;\d+),? (?&lt;rcy&gt;\d+),? (?&lt;rcw&gt;\d+),? (?&lt;rch&gt;\d+)|(?&lt;ob&gt;pt) (?&lt;ptx&gt;\d+),? (?&lt;pty&gt;\d+)))?|(?&lt;param&gt;test|press) (?&lt;keycode&gt;\d+)).*" MutexToCapture="ocrm">
-        <Actions>
-          <Action OrderNumber="1" ListVariableOp="Insert" ListVariableName="ocrBufferList" ListVariableExpression="${0}" ListVariableIndex="0" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TextAuraFontSize="15.75" TextAuraName="buffer" TextAuraExpression="${var:ocrBufferScalar}" TextAuraXIniExpression="724" TextAuraYIniExpression="403" TextAuraWIniExpression="515" TextAuraHIniExpression="190" TextAuraOIniExpression="100" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="TextAura">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TextAuraAlignment="MiddleLeft" TextAuraFontSize="9.75" TextAuraForeground="#DEDDDB" TextAuraOutline="#B7A173" TextAuraName="blah" TextAuraExpression="BUFFER SIZE: ${lvar:ocrBufferList.size}" TextAuraXIniExpression="1482" TextAuraYIniExpression="66" TextAuraWIniExpression="169" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="4" SystemBeepFreqExpression="500" SoundRouting="None" TTSRouting="None">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" TriggerOp="EnableTrigger" TriggerId="f7d085bd-fc8b-4d08-a516-841fc97b270c" TriggerZone="ocr" TriggerForce="regexp" ActionType="Trigger">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${lvar:ocrBufferList.size}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" TriggerId="f7d085bd-fc8b-4d08-a516-841fc97b270c" TriggerZone="ocr" TriggerForce="regexp" ActionType="Trigger">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${lvar:ocrBufferList.size}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
-            </Condition>
-          </Action>
-        </Actions>
-        <Condition Enabled="false" Grouping="Or" />
-      </Trigger>
-      <Trigger Enabled="false" Sequential="True" Name="OCR" Id="0150f33f-dc54-40ac-8f93-1467de863ca4" RegularExpression="ocr (?:(?&lt;param&gt;find|click) (?&lt;search_string&gt;.+?)(?= rect| pt|$) ?(?:(?:(?&lt;ob&gt;rect) (?&lt;rcx&gt;\d+),? (?&lt;rcy&gt;\d+),? (?&lt;rcw&gt;\d+),? (?&lt;rch&gt;\d+)|(?&lt;ob&gt;pt) (?&lt;ptx&gt;\d+),? (?&lt;pty&gt;\d+)))?|(?&lt;param&gt;test|press) (?&lt;keycode&gt;\d+))" MutexToCapture="ocrm1">
-        <Actions>
-          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ocrBufferScalar" VariableExpression="${lvar:ocrBufferList[last]}" Enabled="False" ActionType="Variable">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="2" JsonEndpointExpression="http://localhost:1337" JsonPayloadExpression="{&quot;search_string&quot;:&quot;${search_string}&quot;,&quot;param&quot;:&quot;${param}&quot;,&quot;ob&quot;:&quot;${ob}&quot;,&quot;pt&quot;:[&quot;${ptx}&quot;,&quot;${pty}&quot;],&quot;rect&quot;:[&quot;${rcx}&quot;,&quot;${rcy}&quot;,&quot;${rcw}&quot;,&quot;${rch}&quot;]}" JsonFiringExpression="_jsonresponse[path]" SoundRouting="None" TTSRouting="None" ActionType="GenericJson">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${param}" ExpressionTypeL="String" ExpressionR="click" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-              <ConditionSingle Enabled="true" ExpressionL="${param}" ExpressionTypeL="String" ExpressionR="find" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="3" MouseX="(${_jsonresponse[x]}+${_jsonresponse[w]})/2" MouseY="(${_jsonresponse[y]}+${_jsonresponse[h]})/2" SoundRouting="None" TTSRouting="None" TextAuraBackground="#00FF40" TextAuraName="ocrRect" TextAuraExpression="${_jsonresponse[text_found]}" TextAuraXIniExpression="${_jsonresponse[x]}" TextAuraYIniExpression="${_jsonresponse[y]}" TextAuraWIniExpression="${_jsonresponse[w]}-${_jsonresponse[x]}" TextAuraHIniExpression="${_jsonresponse[h]}-${_jsonresponse[y]}" TextAuraOIniExpression="50" ActionType="Mouse">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${param}" ExpressionTypeL="String" ExpressionR="click" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="4" MouseOpType="LeftClick" MouseCoordType="Relative" SoundRouting="None" TTSRouting="None" TextAuraBackground="#00FF40" TextAuraName="ocrRect" TextAuraExpression="${_jsonresponse[text_found]}" TextAuraXIniExpression="${_jsonresponse[x]}" TextAuraYIniExpression="${_jsonresponse[y]}" TextAuraWIniExpression="${_jsonresponse[w]}-${_jsonresponse[x]}" TextAuraHIniExpression="${_jsonresponse[h]}-${_jsonresponse[y]}" TextAuraOIniExpression="50" ActionType="Mouse">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${param}" ExpressionTypeL="String" ExpressionR="click" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="5" JsonEndpointExpression="http://localhost:1337" JsonPayloadExpression="{&quot;search_string&quot;:&quot;${var:search_string}&quot;}" JsonFiringExpression="${_response}" SoundRouting="None" TTSRouting="None">
-            <Condition Enabled="false" Grouping="And">
-              <ConditionSingle Enabled="true" ExpressionL="${lvar:circleorder.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-              <ConditionSingle Enabled="true" ExpressionL="${lvar:circleorder[1]}" ExpressionTypeL="Numeric" ExpressionR="108" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-              <ConditionSingle Enabled="true" ExpressionL="${lvar:circleorder[2]}" ExpressionTypeL="Numeric" ExpressionR="92" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" TextAuraFontSize="11.25" TextAuraForeground="White" TextAuraBackground="White" TextAuraOutline="Black" TextAuraName="ocrCropBox" TextAuraXIniExpression="${rcx}" TextAuraYIniExpression="${rcy}" TextAuraWIniExpression="${rcw}-${rcx}" TextAuraHIniExpression="${rch}-${rcy}" TextAuraOIniExpression="10" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" TextAuraFontSize="11.25" TextAuraBackground="#00FF40" TextAuraName="ocrRect" TextAuraExpression="${_jsonresponse[text_found]}" TextAuraXIniExpression="${_jsonresponse[x]}" TextAuraYIniExpression="${_jsonresponse[y]}" TextAuraWIniExpression="${_jsonresponse[w]}-${_jsonresponse[x]}" TextAuraHIniExpression="${_jsonresponse[h]}-${_jsonresponse[y]}" TextAuraOIniExpression="50" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="8.25" TextAuraForeground="#80FF80" TextAuraBackground="#FF8040" TextAuraOutline="Black" TextAuraName="ocr" TextAuraExpression="${regex}" TextAuraXIniExpression="888" TextAuraYIniExpression="833" TextAuraWIniExpression="134" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1000">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" TriggerOp="DisableTrigger" TriggerId="0150f33f-dc54-40ac-8f93-1467de863ca4" Enabled="False" ActionType="Trigger">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${lvar:ocrBufferList.size}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="10" ListVariableOp="PopFirst" ListVariableName="ocrBufferList" ListVariableIndex="${lvar:ocrBufferList.size}-1" ListVariableTarget="ocrBufferScalar" SoundRouting="None" TTSRouting="None" Enabled="False" ActionType="ListVariable">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="11" SoundRouting="None" TTSRouting="None" TriggerId="0150f33f-dc54-40ac-8f93-1467de863ca4" TriggerText="${var:ocrBufferScalar}" TriggerZone="ocr" Enabled="False" ActionType="Trigger">
-            <Condition Enabled="false" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${lvar:ocrBufferList.size}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-        </Actions>
-        <Condition Enabled="false" Grouping="Or" />
-      </Trigger>
-      <Trigger Enabled="false" Source="FFXIVNetwork" Name="echo" Id="31b2f0f0-690a-472c-a37b-ad90c74fa329" RegularExpression=".*echo.*">
-        <Actions>
-          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="echo" VariableExpression="${0}" ActionType="Variable">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TextAuraFontSize="8.25" TextAuraName="echo" TextAuraExpression="${var:echo}" TextAuraXIniExpression="407" TextAuraYIniExpression="795" TextAuraWIniExpression="1114" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-        </Actions>
-        <Condition Enabled="false" Grouping="Or" />
-      </Trigger>
-      <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="Active Time Maneuver [Hades]" Id="01588a76-9e57-4665-aa45-bc2ff6864e6e" RegularExpression="(?&lt;start&gt;\|0839\|\|(?:The Light within Her champions grows faint\.\.\.|英雄たちの内なる光が消えようとしている……))|(?&lt;stop&gt;\|0044\|(?:Hades\|Has the Wardens' Light won free!\? No\.\.\.|ハーデス\|光の力が暴走……いや、違う……！))">
-        <Actions>
-          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="activetimemaneuver" VariableExpression="1" ActionType="Variable">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${func:length:${start}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="activetimemaneuver" ActionType="Variable">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${func:length:${stop}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="88" KeyPressWindow="FINAL FANTASY XIV" SoundRouting="None" TTSRouting="None" TriggerId="01588a76-9e57-4665-aa45-bc2ff6864e6e" TriggerForce="regexp,conditions,refire" ActionType="KeyPress">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${var:activetimemaneuver}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="88" KeyPressWindow="FINAL FANTASY XIV" SoundRouting="None" TTSRouting="None" TriggerId="01588a76-9e57-4665-aa45-bc2ff6864e6e" TriggerForce="regexp,conditions,refire" Enabled="False">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${func:length:${start}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-              <ConditionSingle Enabled="true" ExpressionL="${var:activetimemaneuver}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" TriggerId="01588a76-9e57-4665-aa45-bc2ff6864e6e" TriggerForce="regexp" ActionType="Trigger">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="false" ExpressionL="${func:length:${start}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-              <ConditionSingle Enabled="true" ExpressionL="${var:activetimemaneuver}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-        </Actions>
-        <Condition Enabled="false" Grouping="Or" />
-      </Trigger>
-      <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="Pig" Id="70f360b4-2653-4d20-9fc9-0511bb01cb7d" RegularExpression="^00\|.*?\|(?:(?:084a|104a)\|\|(?:Random! (?&lt;player&gt;.*?) rolls? a (?&lt;roll&gt;\d*) \(out of (?&lt;rollLimit&gt;\d*)\).|6面ダイス！ (?&lt;player&gt;.*?)は、(?&lt;roll&gt;\d*)を出した！)|000e\|.(?&lt;player&gt;.*?)\|.*?(?&lt;hold&gt;hold))" MutexToCapture="pig">
-        <Actions>
-          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="pigPlayer" VariableExpression="${player}" ActionType="Variable">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="pigPlayer" VariableExpression="${_ffxivparty[1].name}" ActionType="Variable">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="You" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="turn" VariableExpression="${var:pigPlayer}" ActionType="Variable">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${evar:turn}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="4" ListVariableOp="Set" ListVariableExpressionType="Numeric" ListVariableName="pig_${var:pigPlayer}" ListVariableExpression="0" ListVariableIndex="${lvar:pig_${var:pigPlayer}.size}" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="pig_${player}" VariableExpression="${roll}" ActionType="ListVariable">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="false" ExpressionL="${func:length:${player}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-              <ConditionSingle Enabled="true" ExpressionL="${roll}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="5" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="pig_${var:pigPlayer}" ListVariableExpression="0" ListVariableIndex="${lvar:pig_${player}.size}" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="pig_${player}" VariableExpression="${roll}" ActionType="ListVariable">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionGroup Enabled="false" Grouping="Or">
-                <ConditionSingle Enabled="true" ExpressionL="${roll}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-              </ConditionGroup>
-              <ConditionGroup Enabled="false" Grouping="And">
-                <ConditionSingle Enabled="true" ExpressionL="${elvar:pig_${player}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                <ConditionSingle Enabled="true" ExpressionL="${func:length:${player}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-              </ConditionGroup>
-              <ConditionSingle Enabled="true" ExpressionL="${elvar:pig_${var:pigPlayer}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-              <ConditionSingle Enabled="true" ExpressionL="${roll}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-              <ConditionSingle Enabled="true" ExpressionL="${func:length:${hold}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="6" ListVariableOp="Set" ListVariableExpressionType="Numeric" ListVariableName="pig_${var:pigPlayer}" ListVariableExpression="${lvar:pig_${var:pigPlayer}[${lvar:pig_${var:pigPlayer}.size}]}+${roll}" ListVariableIndex="${lvar:pig_${var:pigPlayer}.size}" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="pig_${player}" VariableExpression="${roll}" ActionType="ListVariable">
-            <Condition Enabled="true" Grouping="And">
-              <ConditionSingle Enabled="true" ExpressionL="${func:length:${player}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-              <ConditionSingle Enabled="true" ExpressionL="${roll}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="7" ListVariableOp="Join" ListVariableName="pig_${var:pigPlayer}" ListVariableExpression="+" ListVariableIndex="${lvar:pig_${player}.size}" ListVariableTarget="pig_${var:pigPlayer}" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="pig_${player}" VariableExpression="${roll}" ActionType="ListVariable">
-            <Condition Enabled="false" Grouping="And">
-              <ConditionSingle Enabled="false" ExpressionL="${func:length:${player}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-              <ConditionSingle Enabled="false" ExpressionL="${roll}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="8" ListVariableOp="Join" ListVariableName="pig_${player}" ListVariableExpression="+" ListVariableIndex="${lvar:pig_${player}.size}" ListVariableTarget="${var:pig_${player}}" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="pig_${var:pigPlayer}" VariableExpression="${var:pig_${var:pigPlayer}}" ActionType="Variable">
-            <Condition Enabled="false" Grouping="And">
-              <ConditionSingle Enabled="false" ExpressionL="${func:length:${player}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-              <ConditionSingle Enabled="false" ExpressionL="${roll}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" TextAuraAlignment="MiddleRight" TextAuraFontSize="15.75" TextAuraName="pigAura" TextAuraExpression="${_ffxivparty[1].name}: ${var:pig_${_ffxivparty[1].name}}&#xD;&#xA;${_ffxivparty[2].name}: ${var:pig_${_ffxivparty[2].name}}&#xD;&#xA;${_ffxivparty[3].name}: ${var:pig_${_ffxivparty[3].name}}&#xD;&#xA;${_ffxivparty[4].name}: ${var:pig_${_ffxivparty[4].name}}&#xD;&#xA;${_ffxivparty[5].name}: ${var:pig_${_ffxivparty[5].name}}&#xD;&#xA;${_ffxivparty[6].name}: ${var:pig_${_ffxivparty[6].name}}&#xD;&#xA;${_ffxivparty[7].name}: ${var:pig_${_ffxivparty[7].name}}&#xD;&#xA;${_ffxivparty[8].name}: ${var:pig_${_ffxivparty[8].name}}" TextAuraXIniExpression="1219" TextAuraYIniExpression="355" TextAuraWIniExpression="360" TextAuraHIniExpression="367" TextAuraOIniExpression="100" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="10" SoundRouting="None" TTSRouting="None" VariableName="pigPlayer" VariableExpression="${player}" ActionType="Variable">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-        </Actions>
-        <Condition Enabled="false" Grouping="Or" />
-      </Trigger>
-      <Trigger Enabled="false" Source="FFXIVNetwork" Name="Orchestrion Aura" Id="7e9b6fb9-45b1-4579-8b5a-76f324be01cc" RegularExpression="00\|\d*\|0038\|\|Now playing (?&lt;title&gt;.*).$">
-        <Actions>
-          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TextAuraFontSize="11.25" TextAuraForeground="#D6D2C8" TextAuraOutline="#AC9B71" TextAuraName="orchestrionAura" TextAuraExpression="Now Playing: ${title}" TextAuraXIniExpression="(${_screenwidth}/2)-400" TextAuraYIniExpression="40" TextAuraWIniExpression="800" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraFontName="Segoe UI" ActionType="TextAura">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-        </Actions>
-        <Condition Enabled="false" Grouping="Or" />
-      </Trigger>
-      <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="MGP Tracker" Id="e680bb91-be53-4538-9229-f107e1263bed" RegularExpression="^00\|.*\|(?:0039\|\|.*(?&lt;cost&gt;in play for the next match\.)|08be\|\|You obtain (?:(?&lt;mgpGained&gt;\d*)(?: \(\+15%\))? MGP\.|an? (?&lt;cardName&gt;.*) card\.)|003d\|(?&lt;npcName&gt;.*?)\||0038\|\|mgp (?&lt;mgpInitial&gt;\d*)$)">
-        <Actions>
-          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableName="mgpFee" ActionType="Variable" Description="delete mgpFee variable if new npc is detected" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="And">
-              <ConditionSingle Enabled="true" ExpressionL="${func:length:${npcName}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-              <ConditionSingle Enabled="true" ExpressionL="${npcName}" ExpressionTypeL="String" ExpressionR="${var:lastNpc}" ExpressionTypeR="String" ConditionType="StringNotEqualCase" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="lastNpc" VariableExpression="${npcName}" ActionType="Variable" Description="save npcName to lastNpc variable" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${func:length:${npcName}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="mgpFee" VariableExpression="40" ActionType="Variable" Description="set mgpFee to 40 - Hanagasa" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="And">
-              <ConditionSingle Enabled="true" ExpressionL="${evar:mgpFee}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-              <ConditionGroup Enabled="true" Grouping="Or">
-                <ConditionSingle Enabled="true" ExpressionL="${npcName}" ExpressionTypeL="String" ExpressionR="Hanagasa" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-              </ConditionGroup>
-            </Condition>
-          </Action>
-          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="mgpFee" VariableExpression="30" ActionType="Variable" Description="set mgpFee to 30 - Indolent Imperial" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="And">
-              <ConditionGroup Enabled="true" Grouping="Or">
-                <ConditionSingle Enabled="true" ExpressionL="${npcName}" ExpressionTypeL="String" ExpressionR="Indolent Imperial" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-              </ConditionGroup>
-              <ConditionSingle Enabled="true" ExpressionL="${evar:mgpFee}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="mgpTarget" VariableExpression="400000" ActionType="Variable" Description="create mgpTarget variable if it doesnt exist (default: 400000)" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${evar:mgpTarget}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="mgpInitial" VariableExpression="${mgpInitial}" ActionType="Variable" Description="set initial mgp" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${func:length:${mgpInitial}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="mgpGained" VariableExpression="0" Enabled="False" ActionType="Variable" Description="initialized mgpGained if it hasn't" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${evar:mgpGained}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="mgpGained" VariableExpression="${var:mgpGained}-${var:mgpFee}" ActionType="Variable" Description="negative mgpGained" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${func:length:${cost}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="mgpGained" VariableExpression="${var:mgpGained}+${mgpGained}" ActionType="Variable" Description="positive mgpGained" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${func:length:${mgpGained}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="10" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="startTime" VariableExpression="${_systemtimems}" ActionType="Variable" Description="start a timer if it hasn't been started yet" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="And">
-              <ConditionSingle Enabled="true" ExpressionL="${evar:startTime}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-              <ConditionSingle Enabled="true" ExpressionL="${evar:mgpGained}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="11" SoundRouting="None" TTSRouting="None" VariableName="mgpCardPrice" Enabled="False" ActionType="Variable" Description="reset mgpCardPrice" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${func:length:${cardName}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="12" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="mgpCardPrice" VariableExpression="300" ActionType="Variable" Description="card 300" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${cardName}" ExpressionTypeL="String" ExpressionR="Rhitahtyn sas Arvina" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-              <ConditionSingle Enabled="true" ExpressionL="${cardName}" ExpressionTypeL="String" ExpressionR="Livia sas Junius" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="13" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="mgpCardPrice" VariableExpression="500" ActionType="Variable" Description="card 500" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${cardName}" ExpressionTypeL="String" ExpressionR="Nero tol Scaeva" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-              <ConditionSingle Enabled="true" ExpressionL="${cardName}" ExpressionTypeL="String" ExpressionR="Rofocale" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="14" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="mgpCardPrice" VariableExpression="800" ActionType="Variable" Description="card 800" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${cardName}" ExpressionTypeL="String" ExpressionR="Argath Thadalfus" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="15" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="mgpCardPrice" VariableExpression="1500" ActionType="Variable" Description="card 1500" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${cardName}" ExpressionTypeL="String" ExpressionR="Gaius van Baelsar" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-              <ConditionSingle Enabled="true" ExpressionL="${cardName}" ExpressionTypeL="String" ExpressionR="Ultima, the High Seraph" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-              <ConditionSingle Enabled="true" ExpressionL="${cardName}" ExpressionTypeL="String" ExpressionR="Yiazmat" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="16" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="mgpGained" VariableExpression="${var:mgpGained}+${var:mgpCardPrice}" ActionType="Variable" Description="add mgpCardPrice price to mgpGained" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="And">
-              <ConditionSingle Enabled="true" ExpressionL="${evar:mgpCardPrice}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-              <ConditionSingle Enabled="true" ExpressionL="${func:length:${cardName}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="17" SoundRouting="None" TTSRouting="None" VariableName="mgpCardPrice" Enabled="False" ActionType="Variable" Description="reset mgpCardPrice" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${evar:mgpCardPrice}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="18" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="mgpCardName" VariableExpression="${cardName}" ActionType="Variable" Description="set cardName variable" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${func:length:${cardName}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="19" SoundRouting="None" TTSRouting="None" TextAuraAlignment="TopLeft" TextAuraFontSize="9.75" TextAuraForeground="#DFDFDF" TextAuraOutline="#1C1C1C" TextAuraExpression="NPC: ${var:lastNpc}, Fee: ${numeric:${var:mgpFee}}&#xD;&#xA;Last Card Won: ${var:mgpCardName} (${var:mgpCardPrice} MGP)&#xD;&#xA;Started at ${func:format(System.Double,&quot;#,##0&quot;):${numeric:(${var:mgpInitial})}} MGP &#xD;&#xA;Gained: ${func:format(System.Double,&quot;#,##0&quot;):${numeric:(${var:mgpGained})}} MGP in (${func:padleft(48,2):${numeric:floor(${numeric:(${_systemtimems}-${var:startTime})/1000}/3600)%24}}:${func:padleft(48,2):${numeric:floor(${numeric:(${_systemtimems}-${var:startTime})/1000}%3600/60)}}:${func:padleft(48,2):${numeric:floor(${numeric:(${_systemtimems}-${var:startTime})/1000}%3600%60)}})&#xD;&#xA;${func:format(System.Double,&quot;0.0000&quot;):${numeric:1000*(${var:mgpGained})/(${_systemtimems}-${var:startTime})}} MGP/s&#xD;&#xA;Progress: ${func:format(System.Double,&quot;#,##0&quot;):${numeric:(${var:mgpInitial})+(${var:mgpGained})}} / ${func:format(System.Double,&quot;#,##0&quot;):${var:mgpTarget}} MGP (${func:format(System.Double,&quot;0.00&quot;):${numeric:((${var:mgpInitial})+(${var:mgpGained}))/${var:mgpTarget}*100}}%)&#xD;&#xA;MGP Needed: ${func:format(System.Double,&quot;#,##0&quot;):${numeric:${var:mgpTarget}-((${var:mgpInitial})+(${var:mgpGained}))}} MGP&#xD;&#xA;Finishing in: ${numeric:floor(((${var:mgpTarget}-((${var:mgpInitial})+(${var:mgpGained})))/(1000*(${var:mgpGained})/(${_systemtimems}-${var:startTime})))/86400)}d ${func:padleft(48,2):${numeric:floor(((${var:mgpTarget}-((${var:mgpInitial})+(${var:mgpGained})))/(1000*(${var:mgpGained})/(${_systemtimems}-${var:startTime})))/3600)%24}}:${func:padleft(48,2):${numeric:floor(((${var:mgpTarget}-((${var:mgpInitial})+(${var:mgpGained})))/(1000*(${var:mgpGained})/(${_systemtimems}-${var:startTime})))%3600/60)}}:${func:padleft(48,2):${numeric:floor(((${var:mgpTarget}-((${var:mgpInitial})+(${var:mgpGained})))/(1000*(${var:mgpGained})/(${_systemtimems}-${var:startTime})))%3600%60)}}" TextAuraXIniExpression="1140" TextAuraYIniExpression="530" TextAuraWIniExpression="388" TextAuraHIniExpression="239" TextAuraOIniExpression="100" TextAuraFontName="AxisLatinPro-Regular" ActionType="TextAura">
-            <Condition Enabled="false" Grouping="And">
-              <ConditionSingle Enabled="true" ExpressionL="${var:mgpGained}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-              <ConditionSingle Enabled="true" ExpressionL="${evar:mgpGained}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="20" SoundRouting="None" TTSRouting="None" TextAuraAlignment="MiddleLeft" TextAuraFontSize="9" TextAuraForeground="#E1E1E1" TextAuraOutline="#9D8750" TextAuraExpression="MGP Gained: ${numeric:(${var:mgpGained})}&#xD;&#xA;Starting MGP: ${var:mgpInitial}&#xD;&#xA;Total MGP: ${numeric:(${var:mgpInitial})+(${var:mgpGained})}&#xD;&#xA;NPC: ${var:lastNpc}&#xD;&#xA;Elapsed Time: ${numeric:${_systemtimems}-${var:startTime}}&#xD;&#xA;MGP/s: ${numeric:round(1000*(${var:mgpGained})/(${_systemtimems}-${var:startTime}),2)}&#xD;&#xA;" TextAuraXIniExpression="988" TextAuraYIniExpression="715" TextAuraWIniExpression="451" TextAuraHIniExpression="157" TextAuraOIniExpression="80" TextAuraFontName="AxisLatinPro-Regular" Enabled="False" ActionType="TextAura">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="21" SoundRouting="None" TTSRouting="None" Enabled="False">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-        </Actions>
-        <Condition Enabled="false" Grouping="Or" />
-      </Trigger>
-      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Reset Triggernometry" Id="2dc91039-ce66-44f9-a320-89622a7866e1" RegularExpression="^00\|.*\|0038\|\|resettrig$">
-        <Actions>
-          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TextAuraOp="DeactivateAllAura" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="UnsetAll" ActionType="Variable">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-        </Actions>
-        <Condition Enabled="false" Grouping="Or" />
-      </Trigger>
-      <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="Triple Triad Clicker" Id="def20070-18a2-4bb7-b377-4a433f64468f" RegularExpression="^00\|.*\|0038\|\|(?:b(?&lt;board&gt;\d)|c(?&lt;card&gt;\d)|u(?&lt;ui&gt;\d))$">
-        <Actions>
-          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" Enabled="False">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="2" MouseOpType="LeftClick" MouseX="566" MouseY="335" SoundRouting="None" TTSRouting="None" ActionType="Mouse" Description="c1" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${card}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="3" MouseOpType="LeftClick" MouseX="651" MouseY="335" SoundRouting="None" TTSRouting="None" ActionType="Mouse" Description="c2" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${card}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="4" MouseOpType="LeftClick" MouseX="737" MouseY="335" SoundRouting="None" TTSRouting="None" ActionType="Mouse" Description="c3" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${card}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="5" MouseOpType="LeftClick" MouseX="611" MouseY="450" SoundRouting="None" TTSRouting="None" ActionType="Mouse" Description="c4" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${card}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="6" MouseOpType="LeftClick" MouseX="695" MouseY="450" SoundRouting="None" TTSRouting="None" ActionType="Mouse" Description="c5" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${card}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="7" MouseOpType="LeftClick" MouseX="853" MouseY="226" SoundRouting="None" TTSRouting="None" ActionType="Mouse" Description="b1" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${board}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="8" MouseOpType="LeftClick" MouseX="961" MouseY="226" SoundRouting="None" TTSRouting="None" ActionType="Mouse" Description="b2" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${board}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="9" MouseOpType="LeftClick" MouseX="1069" MouseY="226" SoundRouting="None" TTSRouting="None" ActionType="Mouse" Description="b3" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${board}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="10" MouseOpType="LeftClick" MouseX="853" MouseY="335" SoundRouting="None" TTSRouting="None" ActionType="Mouse" Description="b4" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${board}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="11" MouseOpType="LeftClick" MouseX="961" MouseY="335" SoundRouting="None" TTSRouting="None" ActionType="Mouse" Description="b5" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${board}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="12" MouseOpType="LeftClick" MouseX="1069" MouseY="335" SoundRouting="None" TTSRouting="None" ActionType="Mouse" Description="b6" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${board}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="13" MouseOpType="LeftClick" MouseX="853" MouseY="442" SoundRouting="None" TTSRouting="None" ActionType="Mouse" Description="b7" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${board}" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="14" MouseOpType="LeftClick" MouseX="961" MouseY="442" SoundRouting="None" TTSRouting="None" ActionType="Mouse" Description="b8" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${board}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="15" MouseOpType="LeftClick" MouseX="1069" MouseY="442" SoundRouting="None" TTSRouting="None" ActionType="Mouse" Description="b9" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${board}" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="16" MouseOpType="LeftClick" MouseX="907" MouseY="689" SoundRouting="None" TTSRouting="None" ActionType="Mouse" Description="u1" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${ui}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="17" MouseOpType="LeftClick" MouseX="957" MouseY="411" SoundRouting="None" TTSRouting="None" ActionType="Mouse" Description="u2" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${ui}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="18" MouseOpType="LeftClick" MouseX="902" MouseY="620" SoundRouting="None" TTSRouting="None" ActionType="Mouse" Description="u3" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${ui}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-        </Actions>
-        <Condition Enabled="false" Grouping="Or" />
-      </Trigger>
-      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Auto Gatherer" Id="9820c209-9fe0-48dc-ae28-3e9636ea2a90" RegularExpression="(?&lt;x&gt;You finish logging.|You finish mining.|You finish quarrying.|You finish harvesting.|You use Aetheromatic Auger.|伐採を終えた。|は草刈を終えた。)|(?&lt;y&gt;You begin mining\.|You begin quarrying\.|You begin harvesting.|You begin logging.|You use King's Yield II\.|You use Blessed Harvest II.|は草刈を開始した。|は伐採を開始した。)|(?&lt;z&gt;You obtain |を入手した。)">
-        <Actions>
-          <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="69" KeyPressWindow="FINAL FANTASY XIV" SoundRouting="None" TTSRouting="None" ActionType="KeyPress" Description="Send keycode (69) &quot;E&quot; to window (Final Fantasy XIV)" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${func:length:${x}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="219" KeyPressWindow="Final Fantasy XIV" SoundRouting="None" TTSRouting="None" Enabled="False" ActionType="KeyPress" Description="Send keycode (219) &quot;[&quot; to window (Final Fantasy XIV)" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${func:length:${x}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="3" KeyPressExpression="{F14}" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="pressconfirmG" VariableExpression="${_systemtimems}" Enabled="False" ActionType="Variable" Description="Calls for pressconfirm" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="And">
-              <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[1].currentgp}" ExpressionTypeL="Numeric" ExpressionR="500" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-              <ConditionSingle Enabled="true" ExpressionL="${func:length:${y}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="69" KeyPressWindow="Final Fantasy XIV" SoundRouting="None" TTSRouting="None" VariableName="pressconfirmG" Enabled="False" ActionType="Variable">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${func:length:${z}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-              <ConditionSingle Enabled="true" ExpressionL="${func:length:${x}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressExpression="96" KeyPressCode="96" KeyPressWindow="FINAL FANTASY XIV" SoundRouting="None" TTSRouting="None" Enabled="False" ActionType="KeyPress" Description="Asuming condition is met, send keycode (96) &quot;Numpad0&quot; to window (FINAL FANTASY XIV)" DescriptionOverride="True">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${evar:pressconfirmG}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" TriggerId="9820c209-9fe0-48dc-ae28-3e9636ea2a90" TriggerForce="regexp" Enabled="False" ActionType="Trigger">
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${evar:pressconfirmG}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-            </Condition>
-          </Action>
-          <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" Enabled="False">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-        </Actions>
-        <Condition Enabled="false" Grouping="Or" />
       </Trigger>
     </Triggers>
   </ExportedFolder>
