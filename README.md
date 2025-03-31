@@ -88,14 +88,15 @@ For multi-part macro
 6. Place third macro in hotbar with keybind `3`\
    and so on...
 ### With ACT and Dalamud Plugins
-1. Install the required Plugins
+This was a mistake, this was implemented before Artisan Plugin was created, please just use that if dalamud is up.
+~~1. Install the required Plugins
 2. Use the port `51323` in Telesto Plugin, and make sure the endpoint is running.
 3. Download `SomethingNeedDoing.json` from the files above.
 4. Cut/Copy and Paste it in `%appdata%\XIVLauncher\pluginConfigs`
 5. Enter `/pcraft` in game to open SomethingNeedsDoing
 6. Add your macros with a unique title.
 7. Add the command `/waitaddon "Synthesis"` at the start of all your macros
-8. Set your active macro using the command `/e ac macro snd [macro name]`
+8. Set your active macro using the command `/e ac macro snd [macro name]`~~
 ## Usage
 ```
 ALIASES:
