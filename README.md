@@ -27,25 +27,12 @@ Auto-pause (and BEEPS!!!) for conditions like
 - Failing a synthesis.
 - Most in-game chat log errors in red text
 
-~~Optional support and extra features using 3rd-party Dalamud Plugins such as~~
-
-  - ~~Keybindless automation~~
-  - ~~Smart action queuing~~
-  - ~~Extended macro length~~
-
-
 ## Installation
 ### Dependencies
 
    - [Advanced Combat Tracker](http://advancedcombattracker.com/)
    - FFXIV Parsing Plugin
    - [Triggernometry Plugin](https://github.com/paissaheavyindustries/Triggernometry/releases)
-
-### ~~Optional Dependencies~~
-~~Dalamud Plugins:~~
-   - ~~Telesto~~
-   - ~~[SomethingNeedsDoing](https://raw.githubusercontent.com/daemitus/MyDalamudPlugins/master/pluginmaster.json)~~
-   - ~~MacroChain~~
 
 ### Adding the Trigger
 
@@ -60,9 +47,12 @@ https://raw.githubusercontent.com/gynryiie/Auto-Crafter/master/TriggernometryExp
 ![image](https://user-images.githubusercontent.com/19721540/167268633-243f8e6f-3379-423f-bdd1-4ec42fe6ac09.png)
 ![image](https://user-images.githubusercontent.com/19721540/167280269-88339a88-856e-4c20-88b8-4a882533ceae.png)
 ![image](https://user-images.githubusercontent.com/19721540/167280449-d64d2fb2-b477-4057-96db-8bf50eb1e535.png)
+
+Make sure not to have more than 1 instance of the `Auto Crafter` folder trigger enabled!!!
+
 ![image](https://user-images.githubusercontent.com/19721540/167280607-27b8c9ad-9aa0-4a9a-9d51-fc6e06ec94b2.png)
 
-Make sure not to have more than 1 instance of the `Auto Crafter` folder trigger enabled
+
 
 ## Updating
 
@@ -86,16 +76,7 @@ For multi-part macro
 5. Set second macro's last line to `/e Macro #2 finished`
 6. Place third macro in hotbar with keybind `3`\
    and so on...
-### With ACT and Dalamud Plugins
-This was a mistake, this was implemented before Artisan Plugin was created, please just use that if dalamud is up.
-1. ~~Install the required Plugins~~
-2. ~~Use the port `51323` in Telesto Plugin, and make sure the endpoint is running~~
-3. ~~Download `SomethingNeedDoing.json` from the files above.~~
-4. ~~Cut/Copy and Paste it in `%appdata%\XIVLauncher\pluginConfigs`~~
-5. ~~Enter `/pcraft` in game to open SomethingNeedsDoing~~
-6. ~~Add your macros with a unique title.~~
-7. ~~Add the command `/waitaddon "Synthesis"` at the start of all your macros~~
-8.~~Set your active macro using the command `/e ac macro snd [macro name]`~~
+   
 ## Usage
 ```
 ALIASES:
@@ -111,12 +92,4 @@ USAGE:
     set [amount]            set the current crafted count to the specified amount.
     reset                   reset the current count and the elapsed time to 0.
     macro keybind [1-9]     set the initial keybind to be used for crafting.
-    
-[Requires: Telesto, MacroChain]
-    macro shared [0-99]     set the in-game macro from the shared tabs to be used for crafting.
-    macro individual [0-99] set the in-game macro from the individual tabs to be used for crafting.
-        
-[Requires: Telesto, SomethingNeedsDoing]
-    macro snd [macro name]  set the SND macro to be used for crafting.
-    extract                 extracts all materia from spiritbonded items
 ```
